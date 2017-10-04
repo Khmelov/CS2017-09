@@ -10,7 +10,6 @@ Hello world!
 Для автоматической проверки откройте и запустите класс Testing
 */
     public static void main(String[] args) {
-
-
+        System.out.println("Hello world!");
     }
 }
