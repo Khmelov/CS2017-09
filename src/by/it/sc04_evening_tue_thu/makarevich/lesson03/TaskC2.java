@@ -14,6 +14,8 @@ HEX:22+1a=3c
 OKT:42+32=74
 */
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Scanner;
 
 class TaskC2 {
@@ -23,7 +25,12 @@ class TaskC2 {
         int a=sc.nextInt();
         int result = i+a;
         System.out.println("DEC"+":"+i+"+"+a+"="+result);
+        System.out.println("BIN"+":"+Integer.toBinaryString(i)+"+"+Integer.toBinaryString(a)+"="+Integer.toBinaryString(result));
+        System.out.println("HEX"+":"+Integer.toHexString(i)+"+"+Integer.toHexString(a)+"="+Integer.toHexString(result));
+        System.out.println("OKT"+":"+Integer.toOctalString(i)+"+"+Integer.toOctalString(a)+"="+Integer.toOctalString(result));
+
     }
+
 
 
 }
