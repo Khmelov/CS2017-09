@@ -1,7 +1,5 @@
 package by.it.sc04_evening_tue_thu.koktysh.lesson03;
 
-import static jdk.nashorn.internal.runtime.regexp.joni.Syntax.Java;
-
 /*
 напишите тело main программы которая выводит на экран 5 строк
 Я начинаю изучать Java!
