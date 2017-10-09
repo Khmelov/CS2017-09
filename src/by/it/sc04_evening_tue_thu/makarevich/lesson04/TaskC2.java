@@ -20,6 +20,9 @@ package by.it.sc04_evening_tue_thu.makarevich.lesson04;
     5. Метод sumDigitsInNumber должен правильно возвращать сумму всех цифр в числе number.
 */
 public class TaskC2 {
+    public static void main(String[] args) {
+
+    }
 
 
 

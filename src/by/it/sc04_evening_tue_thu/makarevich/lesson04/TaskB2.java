@@ -46,16 +46,6 @@ class TaskB2 {
              if (disd>0) System.out.println(+k2+" "+k3);;
              if (disd==0) System.out.println(+k1);
              if (disd<0) System.out.println("Отрицательный дискриминант");
-
-
-
-
-
-
-
         }
-
-
     }
-
 

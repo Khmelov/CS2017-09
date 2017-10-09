@@ -1,5 +1,7 @@
 package by.it.sc04_evening_tue_thu.makarevich.lesson03;
 
+import java.util.Scanner;
+
 /*
 Ускорение свободного падения на Земле и Марсе таково:
 Марс   3,86
@@ -29,3 +31,4 @@ package by.it.sc04_evening_tue_thu.makarevich.lesson03;
 class TaskC3 {
 
 }
+
