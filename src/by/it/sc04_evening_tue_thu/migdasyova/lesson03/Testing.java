@@ -1,6 +1,6 @@
 package by.it.sc04_evening_tue_thu.migdasyova.lesson03;
 
-import org.junit.Test;
+import org.juni.Test;
 
 import java.io.*;
 import java.lang.reflect.Method;
