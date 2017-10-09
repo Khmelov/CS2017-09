@@ -37,13 +37,22 @@ class TaskB2 {
     Scanner sc=new Scanner(System.in);
              int a=sc.nextInt();
              int b=sc.nextInt();
-             int c=sc.nextInt(); }
-        public static double dis(int a, int b, int c){
-            int d=b*b-4*a*c;
-            System.out.println(+d);
+             int c=sc.nextInt();
+             int dis=b*b-4*a*c;
+             double disd=dis;
+             double k1=-b/(2*a);
+             double k2=(-b+Math.sqrt(disd))/(2*a);
+             double k3=(-b-Math.sqrt(disd))/(2*a);
+             if (disd>0) System.out.println(+k2+" "+k3);;
+             if (disd==0) System.out.println(+k1);
+             if (disd<0) System.out.println("Отрицательный дискриминант");
 
 
-            return 0;
+
+
+
+
+
         }
 
 
