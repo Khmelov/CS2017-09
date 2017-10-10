@@ -32,10 +32,30 @@ Scanner sc=new Scanner(System.in);
 9.0 5.0 14.0 3.5 1.0
 
  */
-
+import java.util.Scanner;
 
 class TaskA1 {
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int isum = a + b;
+        int iraz = a - b;
+        int iumn = a * b;
+        int idel = a / b;
+        int irem = a % b;
+
+        double dsum = (double) a + b;
+        double draz = (double) a - b;
+        double dumn = (double) a * b;
+        double ddel = (double) a / b;
+        double drem = (double) a % b;
+
+
+        System.out.println(isum + " " + iraz + " " + iumn + " " + idel + " " + irem);
+
+        System.out.println(dsum + " " + draz + " " + dumn + " " + ddel + " " + drem);
 
     }
 
