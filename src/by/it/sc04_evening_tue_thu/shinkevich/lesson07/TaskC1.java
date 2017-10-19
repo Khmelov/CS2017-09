@@ -10,18 +10,51 @@ package by.it.sc04_evening_tue_thu.shinkevich.lesson07;
     Сначала тот, который для x%3, потом тот, который для x%2, потом последний.
 */
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskC1 {
     public static void main(String[] args) throws Exception
     {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            ArrayList<Integer> bigList= new ArrayList<>();
+            ArrayList<Integer> k3= new ArrayList<>();
+            ArrayList<Integer> k2= new ArrayList<>();
+            ArrayList<Integer> res= new ArrayList<>();
+            for (int i=0;i<20;i++)
+            {
+                int x = Integer.parseInt(reader.readLine());
+                bigList.add(x);
+            }
+        for (Integer aBigList : bigList) {
+            if (aBigList % 3 == 0 && aBigList % 2 == 0) {
+                k2.add(aBigList);
+                k3.add(aBigList);
+            } else if (aBigList % 3 == 0) {
+                k3.add(aBigList);
+            } else if (aBigList % 2 == 0) {
+                k2.add(aBigList);
+            } else {
+                res.add(aBigList);
+            }
+        }
 
+            printList(k3);
+
+            printList(k2);
+
+            printList(res);
+        }
+
+        private static void printList(List<Integer> list)
+        {
+            for (Integer aList : list) {
+                System.out.println(aList);
+            }
+
+        }
 
     }
 
-    private static void printList(List<Integer> list) {
-        for (Integer aList : list) System.out.println(aList);
-    }
-
-
-}

@@ -8,6 +8,20 @@ package by.it.sc04_evening_tue_thu.shinkevich.lesson07;
 */
 
 
-public class TaskB1 {
+import java.util.ArrayList;
 
-}
+public class TaskB1 {
+    public static void main(String[] args) throws Exception {
+        ArrayList<String> str = new ArrayList<>();
+        str.add("Строка 1");
+        str.add("Строка 2");
+        str.add("Строка 3");
+        str.add("Строка 4");
+        str.add("Строка 5");
+        System.out.println(str.size());
+        for(int i = 0; i < 5; i++){
+            System.out.println(str.get(i));
+        }
+      }
+    }
+

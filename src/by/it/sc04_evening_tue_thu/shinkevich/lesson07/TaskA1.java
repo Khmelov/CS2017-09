@@ -26,21 +26,26 @@ package by.it.sc04_evening_tue_thu.shinkevich.lesson07;
 
 import java.util.Scanner;
 
-public class TaskA1 {
-public static void main(String[] arg){
+public class TaskA1
+{
+  public static void main(String[] args)
+  {
     int[] mas=new int[10];
     Scanner sc=new Scanner(System.in);
-    for (int i = 0; i < mas.length; i++) {
+    for (int i = 0; i < mas.length; i++)
+    {
         mas[i] = sc.nextInt();
-        {
+    }
             int[] revers = new int[mas.length];
-
-            for (i = 0; i < mas.length; i++) {
+            for (int i = 0; i < mas.length; i++)
+            {
                 revers[mas.length - i - 1] = mas[i];
-                for (int value : revers) {
+            }
+                for (int value : revers)
+                {
                     System.out.println(value);
                 }
-            }
-        }
-    }}}
+  }
+}
+
 
