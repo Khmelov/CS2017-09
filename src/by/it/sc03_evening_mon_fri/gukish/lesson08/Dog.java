@@ -15,11 +15,14 @@ public class Dog {
     void setName(String name) {
         this.name = name;
     }
-
-
-
             void setAge( int age){
             this.age = age;
         }
 
-        }
+    @Override
+    public String toString() {
+        String result= "Кличка: "+name+". Возраст: "+age;
+        return result;
+    }
+}
+
