@@ -1,4 +1,4 @@
-package by.it.sc04_evening_tue_thu.bayramova.lesson07;
+package by.it.sc04_evening_tue_thu.motuz.lesson07;
 
 /* Массив из чисел в обратном порядке
 1. Создать массив на 10 чисел.
@@ -24,23 +24,21 @@ package by.it.sc04_evening_tue_thu.bayramova.lesson07;
 */
 
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class TaskA1 {
     public static void main(String[] args) {
-        int a[] = new int[10];
-        int i;
-        Scanner sc = new Scanner(System.in);
-        for (i = 0; i < 10; i++) {
-            a[i] = sc.nextInt();
+        int[] arr = new int[10];
+        for (int x = 0; x < arr.length; x++) {
         }
-        for (i = 0; i < a.length / 2; i++) {
-            int tmp = a[i];
-            a[i] = a[a.length - i - 1];
-            a[a.length - i - 1] = tmp;
+        for (int x = 0; x < arr.length / 2; x++) {
+            int tmp = arr[x];
+            arr[x] = arr[arr.length - x - 1];
+            arr[arr.length - x - 1] = tmp;
         }
-        for (i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
+        for (int x = 0; x < arr.length; x++) {
+            System.out.println(arr[x]);
         }
     }
 }
