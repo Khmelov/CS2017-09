@@ -34,7 +34,6 @@ public class TaskA2 {
         dog2.setName("Тузик");
         dog2.setAge(3);
 
-
         System.out.println(dog1);
         System.out.println(dog2);
 }}

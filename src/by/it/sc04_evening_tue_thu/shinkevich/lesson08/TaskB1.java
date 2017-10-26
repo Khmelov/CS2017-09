@@ -29,31 +29,22 @@ double averageAge(Dog[] dogs){.....}; //должен вычислять сред
 
 public class TaskB1 {
 
-    class DogHelper {
-
-        void printAllNames(Dog[] dogs) {
-            for (Dog dog : dogs) ;
-            int i = 0;
-            System.out.print(dogs[i].getName() + " ");
+    public static void main(String[] args)
+    {
+        Dog [] dogs = new Dog[5];
+        String names[]={"Шарик", "Жучка", "Бобик", "Барбос","Полкан"};
+        for (int i = 0; i < dogs.length; i++)
+        {
+            dogs[i]=new Dog();
+            dogs[i].setName(names[i]);
         }
-
-        public void main(String[] args) {
-            Dog[] dogs = new Dog[5];
-            for (int i = 0; i < dogs.length; i++)
-                dogs[i] = new Dog();
-                       dogs[0].setName("Шарик");
-            dogs[1].setName("Жучка");
-            dogs[2].setName("Бобик");
-            dogs[3].setName("Барбос");
-            dogs[4].setName("Полкан");
-            dogs[0].setAge(1);
-            dogs[1].setAge(2);
-            dogs[2].setAge(3);
-            dogs[3].setAge(4);
-            dogs[4].setAge(5);
+        DogHelper.printAllNames(dogs);
+        int [] ages ={1,2,3,4,5};
+        for (int i = 0; i < ages.length; i++)
+        {
+            dogs[i].setAge(ages[i]);
         }
-                   void averageAge(Dog[] dogs){
-            double averageAge = (double) (1+2+3+4+5)/5;
-            System.out.print(averageAge);
-        }
-}}
+        System.out.println();
+        DogHelper.averageAge(dogs);
+    }
+}
