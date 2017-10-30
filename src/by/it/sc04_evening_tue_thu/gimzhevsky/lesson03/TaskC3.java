@@ -29,14 +29,24 @@ import java.util.Scanner;
 
 */
 class TaskC3 {
+
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        System.out.println(getWeight(sc.nextInt()));
-    }
-    static double getWeight (int weight){
-        double weight2 = weight * 3.86/9.81;
-        weight2 = (double)(int)Math.round(weight2 *100)/100;
-        return weight2;
+        int i = sc.nextInt();
+
+        System.out.println(getWeight(i));
+
     }
 
+    public static double getWeight(int x) {
+
+        double weightMars = x * 3.86 / 9.81;
+        int weight = (int) (weightMars * 100+0.5); // (+0.5) округление по законам математики
+
+        double newWeightMars = (double) weight / 100;
+        return newWeightMars;
+
+    }
 }
