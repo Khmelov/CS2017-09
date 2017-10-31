@@ -24,7 +24,7 @@ import java.util.Scanner;
 75
 
 Вывод:
-29.51
+29.51 
 
 
 */
