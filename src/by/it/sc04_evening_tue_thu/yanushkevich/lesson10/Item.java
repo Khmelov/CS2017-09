@@ -24,9 +24,18 @@ class Item implements Comparable<Item> {
 
         @Override
         public int compareTo(Item o) {
-            //тут может быть ваш компаратор
+            //--сортировка элементов по возрастанию стоимости за кг
+
+         /*   double p1=this.cost/this.weight;
+            double p2=o.cost/o.weight;
+            if (p1>p2) return -1;
+            else if (p1==p2) return 0;
+            else return 1;*/
+
+            return (o.cost/o.weight - this.cost/this.weight); //--возвращает отриц.число 0 или полож число
+            //--что в итоге компаратором будет преобразовано в -1; 0; 1
 
 
-            return 0;
+
         }
     }
