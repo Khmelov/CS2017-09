@@ -39,7 +39,7 @@ public class B_MergeSort {
 
 
     }
-    private int [] mergeSort(int[]mas,int left,int right){
+    private int [] mergeSort(int[]mas,int left,int right){//вместо этого цикла можно приоритикви
         if(left==right){
             int[]one=new int[1];
             one[0]=mas[left];
