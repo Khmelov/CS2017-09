@@ -37,6 +37,87 @@ package by.it.sc02_morning.serzhan.lesson05;
 
 */
 
-public class TaskC1 {
+import java.util.Scanner;
 
+public class TaskC1 {
+    public static void main(String[] args) {
+        System.out.println("Какую вы хотите зарплату в $$$?");
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt();
+        double salary = 0;
+        String c = null;
+        if (i > 3000 || i < 300)
+            System.out.println("Мы вам перезвоним!");
+        else
+            for (int month = 0; month <= 14; month++) {
+                switch (month) {
+                    case 0:
+                        c = "месяц 0";
+                        salary = 0;
+                        break;
+                    case 1:
+                        c = "январь";
+                        salary = i + i / 2;
+                        break;
+                    case 2:
+                        c = "февраль";
+                        salary = i + i / 2;
+                        break;
+                    case 3:
+                        c = "март";
+                        salary = i + i / 2;
+                        break;
+                    case 4:
+                        c = "апрель";
+                        salary = i + i / 2;
+                        break;
+                    case 5:
+                        c = "май";
+                        salary = i + i / 2;
+                        break;
+                    case 6:
+                        c = "июнь";
+                        salary = i;
+                        break;
+                    case 7:
+                        c = "июль";
+                        salary = i;
+                        break;
+                    case 8:
+                        c = "август";
+                        salary = i;
+                        break;
+                    case 9:
+                        c = "сентябрь";
+                        salary = i + i / 2;
+                        break;
+                    case 10:
+                        c = "октябрь";
+                        salary = i + i / 2;
+                        break;
+                    case 11:
+                        c = "ноябрь";
+                        salary = i + i / 2;
+                        break;
+                    case 12:
+                        c = "декабрь";
+                        salary = i + i / 2;
+                        break;
+                    case 13:
+                        c = "месяц 13";
+                        salary = 0;
+                        break;
+                    case 14:
+                        c = "месяц 14";
+                        salary = 0;
+                        break;
+                }
+                        System.out.println("За " + c + " начислено $" + salary);
+                        if (salary == 666)
+                            break;
+
+
+            }
+
+    }
 }
