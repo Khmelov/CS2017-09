@@ -18,4 +18,5 @@ package by.it.sc02_morning.serzhan.lesson06;
  */
 public class TaskC2 {
 
+
 }

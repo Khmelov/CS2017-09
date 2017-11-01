@@ -50,6 +50,8 @@ package by.it.sc02_morning.serzhan.lesson06;
 
 */
 
-public class TaskC1 {
+import java.util.Scanner;
 
-}
+public class TaskC1{
+    }
+
