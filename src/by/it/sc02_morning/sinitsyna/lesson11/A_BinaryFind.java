@@ -56,7 +56,7 @@ if (index<0)
     result[i]=-1;
 else result[i]=index+1;
 
-            result[i]=-1;
+         //   result[i]=-1;
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
