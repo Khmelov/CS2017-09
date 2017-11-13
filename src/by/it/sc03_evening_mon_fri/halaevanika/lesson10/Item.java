@@ -27,6 +27,14 @@ class Item implements Comparable<Item> {
             //тут может быть ваш компаратор
 
 
+<<<<<<< 8d974753983f131b431fb2e273ffcad427355c48
             return 0;
+=======
+            if ((double) (this.cost) / this.weight > (double) (o.cost) / o.weight) {
+                return -1;
+            } else {
+                return 1;
+            }
+>>>>>>> Lesson 10
         }
     }
