@@ -67,7 +67,7 @@ public class B_MergeSort {
         // тут реализуйте сортировку слиянием
         // https://ru.wikipedia.org/wiki/Сортировка_слиянием
         //!!!!!!!!!!!!!!!!!!!!!!!!     тут ваше решение   !!!!!!!!!!!!!!!!!!!!!!!!
-a=mergeSort(a,0,a.length-1);
+        a=mergeSort(a,0,a.length-1);
 
 
 
