@@ -38,10 +38,7 @@ public class B_MergeSort {
         // https://ru.wikipedia.org/wiki/Сортировка_слиянием
         //!!!!!!!!!!!!!!!!!!!!!!!!     тут ваше решение   !!!!!!!!!!!!!!!!!!!!!!!!
 
-
-
-
-
+        a = mergeSort(a, 0, a.length - 1);
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return a;
@@ -57,6 +54,41 @@ public class B_MergeSort {
         System.out.println("Отсортированный массив "+ Arrays.toString(result));
         //long finishTime = System.currentTimeMillis();
     }
+    private int[] merge(int[] a, int[] b) {
+        int [] result = new int[a.length+b.length];
+        int ai = 0;
+        int bi = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (ai==a.length){
+                result[i]=b[bi];
+                bi++;}
+            else if (bi==b.length){
+                result[i]=a[ai];
+                ai++;}
+            else if (a[ai]<b[bi]){
+                result[i]=a[ai];
+                ai++;}
+            else {
+                result[i] = b[bi];
+                bi++;
+            }
+        }
+        return result;
+    }
+    private int [] mergeSort(int [] mas, int left, int right){
+        if (left == right){
+            int [] one = new int[1];
+            one [0] = mas[left];
+            return one;
+        }
+        int mid = (left+right)>>>1;
+        int [] a = mergeSort(mas, left, mid);
+        int [] b = mergeSort(mas, mid+1, right);
+        int [] res = merge (a,b);
+        return res;
 
+    }
 
 }
+
+
