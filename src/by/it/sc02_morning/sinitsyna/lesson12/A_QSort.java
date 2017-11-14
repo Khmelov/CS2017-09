@@ -63,7 +63,7 @@ public class A_QSort {
         public int compareTo(Segment otherSegment) {
             //подумайте, что должен возвращать компаратор отрезков
             //и нужен ли он вообще.
-            return 0;
+            return this.stop-otherSegment.stop;
         }
 
         @Override
@@ -71,7 +71,6 @@ public class A_QSort {
             return "("+start +":" + stop +')';
         }
     }
-
     private int partition(int[] a, int left, int right) {
         int x=a[left];
         int j=left;
