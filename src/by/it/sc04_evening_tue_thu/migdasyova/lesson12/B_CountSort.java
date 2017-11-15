@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class B_CountSort {
 
-
     int[] countSort(InputStream stream) throws FileNotFoundException {
         //подготовка к чтению данных
         Scanner scanner = new Scanner(stream);
@@ -55,5 +54,4 @@ public class B_CountSort {
             System.out.print(index+" ");
         }
     }
-
 }
