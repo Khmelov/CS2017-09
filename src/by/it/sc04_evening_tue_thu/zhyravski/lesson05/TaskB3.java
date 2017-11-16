@@ -25,6 +25,35 @@ package by.it.sc04_evening_tue_thu.zhyravski.lesson05;
  */
 
 
+import java.util.Scanner;
+
 public class TaskB3 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int num = scanner.nextInt();
+
+        int iter = 2;
+
+        int sum = 1;
+
+        String strAnswer = "";
+
+        while (sum <= num) {
+
+            strAnswer += sum + ",";
+
+            sum += iter;
+
+            iter++;
+
+
+        }
+
+        System.out.print(strAnswer);
+
+    }
 
 }

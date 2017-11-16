@@ -37,6 +37,95 @@ package by.it.sc04_evening_tue_thu.zhyravski.lesson05;
 
 */
 
+import java.util.Scanner;
+
 public class TaskC1 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Какую вы хотите зарплату в $$$?");
+
+        int salary = scanner.nextInt();
+
+        if (salary < 300 || salary > 3000) {
+
+            System.out.println("Мы вам перезвоним!");
+
+        } else {
+            metka:
+            for (int i = 0; i <=  14; i++) {
+
+                double resultSalary = salary;
+
+                /*if (i < 1 || i > 12) {
+
+                    System.out.println("За месяц " + i + " начислено $0.0");
+
+                    continue;
+
+                }*/
+
+                switch (i) {
+                    case 0:
+                        System.out.println("За месяц " + i + " начислено $0.0");
+                        break;
+                    case 1:
+                        System.out.println("За январь начислено $" + (double)(resultSalary += salary * 0.5));
+                        if (resultSalary == 666) {
+                            break metka;
+                        }
+                    break;
+                    case 2:
+                        System.out.println("За февраль начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 3:
+                        System.out.println("За март начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 4:
+                        System.out.println("За апрель начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 5:
+                        System.out.println("За май начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 6:
+                        System.out.println("За июнь начислено $" + (double)salary);
+                        if (resultSalary == 666) {
+                            break metka;
+                        }
+                        break;
+                    case 7:
+                        System.out.println("За июль начислено $" + (double)salary);
+                        break;
+                    case 8:
+                        System.out.println("За август начислено $" + (double)salary);
+                        break;
+                    case 9:
+                        System.out.println("За сентябрь начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 10:
+                        System.out.println("За октябрь начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 11:
+                        System.out.println("За ноябрь начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 12:
+                        System.out.println("За декабрь начислено $" + (double)(resultSalary += salary * 0.5));
+                        break;
+                    case 13:
+                        System.out.println("За месяц " + i + " начислено $0.0");
+                        break;
+                    case 14:
+                        System.out.print("За месяц " + i + " начислено $0.0");
+                        break;
+
+                }
+
+            }
+
+        }
+
+    }
 
 }
