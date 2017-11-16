@@ -38,10 +38,10 @@ public class TaskB1 {
     public static void main(String[] args) {
 
         double[] mas = new double[12];
-        Scanner sc = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
         for (int i = 0; i < 12; i++) {
             mas[i] = sc.nextDouble();
-            //    mas[i] = (int) (Math.random() * 88) + 10; // [10;99] (max - min + 1) + min
+          //  mas[i] = (int) (Math.random() * 88) + 10; // [10;99] (max - min + 1) + min
         }
 
       /*неотсортированные зарплаты без надбавок
@@ -58,8 +58,9 @@ public class TaskB1 {
         System.out.println(sal.getSum(20));
         sal.setSalary(50);
         sal.sort();
-        System.out.println(Arrays.toString(sal.getSalary()));
+        //System.out.println(Arrays.toString(sal.getSalary()));
+        System.out.println(sal); //используя переопределенный метод метод toString
         System.out.println(sal.getSum());
-        // System.out.println(sal.getSalary()); почему-то не срабатывает переопределенный метод toString
+
     }
 }
