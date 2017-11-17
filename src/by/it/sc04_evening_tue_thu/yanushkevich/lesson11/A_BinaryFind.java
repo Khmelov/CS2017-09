@@ -3,6 +3,7 @@ package by.it.sc04_evening_tue_thu.yanushkevich.lesson11;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -37,25 +38,54 @@ public class A_BinaryFind {
         //размер отсортированного массива
         int n = scanner.nextInt();
         //сам отсортированный массива
-        int[] a=new int[n];
+        int[] a = new int[n];
         for (int i = 1; i <= n; i++) {
-            a[i-1] = scanner.nextInt();
+            a[i - 1] = scanner.nextInt(); //M2 исходный упорядоченный масив для поиска индексов
         }
 
         //размер массива индексов
         int k = scanner.nextInt();
-        int[] result=new int[k];
+        int[] result = new int[k];
         for (int i = 0; i < k; i++) {
-            int value = scanner.nextInt();
+            int value = scanner.nextInt(); //M3 в value поочередно заносим числа для поиска
             //тут реализуйте бинарный поиск индекса
-            //для значения value в саммиве a
+            //для значения value в массиве a
             //результат поиска сохраните в result[i]
 
+            //M4  Бинарный поиск LK11 p11
 
 
+            int left = 0;
+            int right = a.length - 1;
 
-            result[i]=-1;
+            while (left <= right) {
+
+                int m = (left + right) / 2;
+
+                if (a[m] == value) {
+                    result[i] = m + 1;
+                    break;
+                }
+                else if (a[m] > value)
+                    right = m - 1;
+                else
+                    left = m + 1;
+
+                result[i] = -1; //возвращаем -1 если числа  не найдено
+
+            }
         }
+
+
+      /*      int index= Arrays.binarySearch(a,value);
+            if(index<0){
+                result[i]=-1;
+            }
+            else result[i]=index+1;
+        }*/
+
+
+
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
     }
@@ -64,12 +94,13 @@ public class A_BinaryFind {
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
         InputStream stream = new FileInputStream(root + "by/it/akhmelev/lesson11/dataA.txt");
-        A_BinaryFind instance = new A_BinaryFind();
+
+        A_BinaryFind instance = new A_BinaryFind();     //M1 создаем объект класса чтобы вызвать метода
         //long startTime = System.currentTimeMillis();
-        int[] result=instance.findIndex(stream);
+        int[] result = instance.findIndex(stream);
         //long finishTime = System.currentTimeMillis();
-        for (int index:result){
-            System.out.print(index+" ");
+        for (int index : result) {
+            System.out.print(index + " ");
         }
     }
 
