@@ -1,4 +1,8 @@
 package by.it.sc04_evening_tue_thu.migdasyova.lesson13;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
 /*
 Напишите отдельный класс Salary который принимает в конструктор
 массив double[]
@@ -28,5 +32,20 @@ package by.it.sc04_evening_tue_thu.migdasyova.lesson13;
  сумму с этой надбавкой.
 */
 public class TaskB1 {
+    public static void main(String[] args) {
+        double[] salary = new double[12];
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < salary.length; i++) {
+            salary[i] = sc.nextDouble();
+        }
 
+        Salary salaries = new Salary(salary);
+        System.out.println(Arrays.toString(salaries.getSalary()));//неотсортированные зарплаты без надбавок
+        System.out.println(salaries.getSum());//сумму без надбавок.
+        System.out.println(Arrays.toString(salaries.getSalary(20)));//неотсортированные зарплаты с надбавкой в 20%
+        System.out.println(salaries.getSum(20));     //сумму с этой надбавкой.
+        salaries.sort();
+        System.out.println(Arrays.toString(salaries.getSalary(50)));//отсортированные зарплаты с надбавкой в 50%
+        System.out.println(salaries.getSum(50));        //сумму с этой надбавкой.
+    }
 }

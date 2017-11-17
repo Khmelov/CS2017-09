@@ -21,40 +21,40 @@ import java.util.Scanner;
  сумму с этой надбавкой.
 */
 public class TaskA1 {
-    static double sum(double[] salary){
+    static double sum(double[] salary) {
         double sum = 0;
         for (double s : salary) {
-           sum=sum+s;
+            sum = sum + s;
         }
-        return  0;
+        return sum;
     }
-     static double[] add(double[] salary, double percent){
-        double[] result=new double[salary.length];
-         for (int i = 1; i <salary.length ; i++) {
-             result[i]=salary[i]*(100+percent)/100;
-         }
-        return salary;
-     }
-    static void sort(double[] salary){
+
+    static double[] add(double[] salary, double percent) {
+        double[] result = new double[salary.length];
+        for (int i = 0; i < salary.length; i++) {
+            result[i] = salary[i] + salary[i] * (percent / 100);
+        }
+        return result;
+    }
+
+    static void sort(double[] salary) {
         Arrays.sort(salary);
     }
 
     public static void main(String[] args) {
-        double[] salary=new double[12];
+        double[] salary = new double[12];
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < salary.length; i++) {
             salary[i] = sc.nextDouble();
-
-            System.out.println(Arrays.toString(salary));
-            System.out.println(sum(salary));
-            double[] mas = add(salary, 20);
-
-            System.out.println(Arrays.toString(add(salary, 20)));
-            System.out.println(sum(mas));
-            mas=add(salary,50);
-            sort(mas);
-            System.out.println(Arrays.toString(mas));
-            System.out.println(sum(mas));
         }
+        System.out.println(Arrays.toString(salary));
+        System.out.println(sum(salary));
+        double[] mas = add(salary, 20);
+        System.out.println(Arrays.toString(add(salary, 20)));
+        System.out.println(sum(mas));
+        mas = add(salary, 50);
+        sort(mas);
+        System.out.println(Arrays.toString(mas));
+        System.out.println(sum(mas));
     }
 }
