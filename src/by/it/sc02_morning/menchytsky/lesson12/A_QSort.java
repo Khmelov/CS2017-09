@@ -47,6 +47,35 @@ import java.util.Scanner;
 
 public class A_QSort {
 
+    class Event implements Comparable<Event>{
+        int time;
+        int type;
+        int index;
+
+        public Event(int time, int type) {
+            this.time = time;
+            this.type = type;
+        }
+
+        public Event(int time, int type, int index) {
+            this.time = time;
+            this.type = type;
+            this.index = index;
+        }
+
+        @Override
+        public String toString() {
+            return "(" + time + "," + type + ")";
+        }
+
+        @Override
+        public int compareTo(Event other) {
+            int result = this.time - other.time;
+            if (result == 0)
+                result = - this.type + other.type;
+            return result;
+        }
+    }
     //отрезок
     private class Segment  implements Comparable<Segment>{
         int start;
@@ -85,31 +114,51 @@ public class A_QSort {
         int[] points=new int[m];
         int[] result=new int[m];
 
+        Event[] events = new Event[2*n+m];
+        int counterEvent = 0;
         //читаем сами отрезки
         for (int i = 0; i < n; i++) {
             //читаем начало и конец каждого отрезка
             segments[i]=new Segment(scanner.nextInt(),scanner.nextInt());
+            events[counterEvent++] = new Event(segments[i].start, +1);
+            events[counterEvent++] = new Event(segments[i].stop, -1);
         }
         System.out.println("segments="+ Arrays.toString(segments));
         //читаем точки
         for (int i = 0; i < m; i++) {
             points[i]=scanner.nextInt();
+            events[counterEvent++] = new Event(points[i], 0, i);
         }
         System.out.println("points="+ Arrays.toString(points));
         //тут реализуйте логику задачи
         //ОБЯЗАТЕЛЬНО с применением быстрой сортировки
-        QuickSort(points);//сортируем точки
-        //System.out.println("points after sort ="+ Arrays.toString(points));
-        QuickSort(segments);//сортируем отрезки по возростанию
-        // System.out.println("segments after sort ="+ Arrays.toString(segments));
 
-        for(int j=0; j<m; j++){
-            for(int i=0; i<n; i++){
-                if(segments[i].start<=points[j] && segments[i].stop>=points[j]){
-                    result[j]++;
-                }
+        System.out.println("events1="+ Arrays.toString(events));
+        Arrays.sort(events);
+        System.out.println("events2="+ Arrays.toString(events));
+
+
+        int onCam = 0;
+        int i = 0;
+        for (Event e:events){
+            if (e.type!=0){
+                onCam = onCam + e.type;
             }
+            else
+                result[e.index] = onCam;
         }
+//        QuickSort(points);//сортируем точки
+//        //System.out.println("points after sort ="+ Arrays.toString(points));
+//        QuickSort(segments);//сортируем отрезки по возростанию
+        // System.out.println("segments after sort ="+ Arrays.toString(segments));
+//
+//        for(int j=0; j<m; j++){
+//            for(int i=0; i<n; i++){
+//                if(segments[i].start<=points[j] && segments[i].stop>=points[j]){
+//                    result[j]++;
+//                }
+//            }
+//        }
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
