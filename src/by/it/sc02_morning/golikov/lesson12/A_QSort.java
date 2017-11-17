@@ -49,8 +49,8 @@ import java.util.Scanner;
 
 public class A_QSort {
 
-    class Event implements Comparable <Event> { // в угловых скобках event
-                int time;
+    class Event implements Comparable <Event> {
+        int time;
         int type;
         int index;
 
@@ -98,7 +98,7 @@ public class A_QSort {
         public int compareTo(Segment otherSegment) {
             //подумайте, что должен возвращать компаратор отрезков
             //и нужен ли он вообще.
-            return 0;
+            return this.stop - otherSegment.stop;
         }
 
         @Override
@@ -111,7 +111,7 @@ public class A_QSort {
         int x = a[left];
         int j = left;
         for (int i = left + 1; i <= right ; i++) {
-            if (a[i] <= x) {
+            if (a[i] < x) {
                 j++;
                 int tmp = a[j];
                 a[j] = a[i];
@@ -124,16 +124,17 @@ public class A_QSort {
         return j;
     }
 
-    void qSort (int a[], int left, int right) {
-        if (left < right) {
+    private void qSort (int a[], int left, int right) {
+        if (left >= right)
+            return;
             int m = partition(a, left, right);
             qSort(a, left, m - 1);
             qSort(a, m + 1, right);
-        }
+
     }
 
-    void qSort (int a[]) {
-        qSort(a, 0, a.length-1);
+    private void qSort (int[] a) {
+        qSort(a, 0, a.length - 1);
     }
 
     int[] getAccessory(InputStream stream) throws FileNotFoundException {
@@ -156,35 +157,42 @@ public class A_QSort {
         for (int i = 0; i < n; i++) {
             //читаем начало и конец каждого отрезка
             segments[i]=new Segment(scanner.nextInt(),scanner.nextInt());
-            events[counterEvent++] = new Event(segments[i].start, 1);
+            events[counterEvent++] = new Event(segments[i].start, +1);
             events[counterEvent++] = new Event(segments[i].stop, -1);
         }
         System.out.println("segments="+ Arrays.toString(segments));
         //читаем точки
         for (int i = 0; i < m; i++) {
             points[i]=scanner.nextInt();
-            events[counterEvent++] = new Event(points[i],0, i);
+            events[counterEvent++] = new Event(points[i],0);//, i);
         }
         System.out.println("points="+ Arrays.toString(points));
         //тут реализуйте логику задачи
         //ОБЯЗАТЕЛЬНО с применением быстрой сортировки
 
+        qSort(points);
         System.out.println("events1=" + Arrays.toString(events));
         Arrays.sort(events);
         System.out.println("events2=" + Arrays.toString(events));
 
         int onCam = 0;
-        //int i = 0;
+        int i = 0;
 
-        for (Event e:events) {
-            if (e.type !=0) {
-                onCam = onCam++;
-            }
-            else if (e.type == -1)
-                onCam--;
-            else
-               result[e.index] = onCam;
+        for (int j = 0; j < events.length; j++) {
+            if (events[j].type == 0) {
+                result[i++] = onCam;
+            } else
+                onCam = onCam + events[j].type;
         }
+//        for (Event e:events) {
+//            if (e.type !=0) {
+//                onCam = onCam++;
+//            }
+//            else if (e.type == -1)
+//                onCam--;
+//            else
+//               result[e.index] = onCam;
+//        }
 
        // qSort(points); // тут всесто этого свой квик сорт qSort(points)
       //  System.out.printf("points sort = " + Arrays.toString(points));
