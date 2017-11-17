@@ -34,7 +34,7 @@ import java.util.Scanner;
 public class C_QSortOptimized {
 
     //отрезок
-    private class Segment  implements Comparable{
+    private class Segment  implements Comparable<Segment>{
         int start;
         int stop;
 
@@ -44,10 +44,10 @@ public class C_QSortOptimized {
         }
 
         @Override
-        public int compareTo(Object o) {
+        public int compareTo(Segment otherSegment) {
             //подумайте, что должен возвращать компаратор отрезков
             //и нужен ли он вообще.
-            return 0;
+            return this.stop-otherSegment.stop;
         }
 
         @Override
@@ -84,6 +84,17 @@ public class C_QSortOptimized {
         //тут реализуйте логику задачи с применением быстрой сортировки
         //в классе отрезка Segment реализуйте нужный для этой задачи компаратор
 
+        Arrays.sort(points);
+        System.out.println("points="+ Arrays.toString(points));
+        Arrays.sort(segments);
+
+        for(int j = 0; j < m; j++){
+            for(int i = 0; i < n; i++){
+                if(segments[i].start <= points[j] && segments[i].stop >= points[j]) {
+                    result[j]++;
+                }
+            }
+        }
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
