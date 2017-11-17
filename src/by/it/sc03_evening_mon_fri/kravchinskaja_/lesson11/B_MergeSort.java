@@ -22,6 +22,70 @@ Sample Output:
 */
 public class B_MergeSort {
 
+    private static int inverse = 0;
+
+    int[] merge(int[] arr1, int[] arr2) {
+
+        int sumOfLength = arr1.length + arr2.length;
+        int[] result = new int[sumOfLength];
+        int i = 0;
+        int j = 0;
+        //int inverse = 0;
+
+        for (int k = 0; k < sumOfLength; k++) {
+
+            if (i >= arr1.length) {
+
+                result[k] = arr2[j];
+
+                j++;
+
+            } else if (j >= arr2.length) {
+
+                result[k] = arr1[i];
+
+                i++;
+
+            } else if (arr1[i] < arr2[j]) {
+
+                result[k] = arr1[i];
+
+                i++;
+
+            } else {
+
+                result[k] = arr2[j];
+
+                j++;
+
+                inverse++;
+
+            }
+
+        }
+
+        return result;
+    }
+
+    int[] mergeSort(int[] arr) {
+
+        if (arr.length < 2) {
+
+            return arr;
+
+        }
+
+        int middleIndex = (arr.length - 1) / 2;
+
+        int[] leftArr = Arrays.copyOfRange(arr, 0, middleIndex + 1);
+        int[] rightArr = Arrays.copyOfRange(arr, middleIndex, arr.length - 1);
+
+        //System.out.println(rightArr.length);
+
+        return merge(mergeSort(leftArr), mergeSort(rightArr));
+
+    }
+
 
     int[] getMergeSort(InputStream stream) throws FileNotFoundException {
         //подготовка к чтению данных
@@ -44,7 +108,7 @@ public class B_MergeSort {
 
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
-        return a;
+        return mergeSort(a);
     }
 
 
@@ -56,6 +120,7 @@ public class B_MergeSort {
         int[] result=instance.getMergeSort(stream);
         System.out.println("Отсортированный массив "+ Arrays.toString(result));
         //long finishTime = System.currentTimeMillis();
+        //System.out.println(inverse);
     }
 
 
