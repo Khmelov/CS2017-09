@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 import static java.lang.Math.random;
 
@@ -72,10 +73,10 @@ public class C_QSortOptimized {
         b = temp;
     }
 
-    private static void swap(Object[] a, int l, int r) {
-        Object temp = a[l];
-        a[l] = a[r];
-        a[r] = temp;
+    private static void swap(ArrayList a, int l, int r) {
+        Object temp = a.get(l);
+        a.set(l, a.get(r));
+        a.set(r, temp);
     }
 
     int[] getAccessory2(InputStream stream) throws FileNotFoundException {
@@ -164,8 +165,6 @@ public class C_QSortOptimized {
         }
     }
 
-//    TODO    элиминация хвостовой рекурсии
-//    TODO    сортировка на месте
 //    TODO    рекурсионные вызовы должны проводится на основе 3-разбиения
     private static void qSort(ArrayList a) {
 
@@ -174,20 +173,23 @@ public class C_QSortOptimized {
 
     private static void qSort(ArrayList a, int left, int right) {
 
-        if (left >= right) {
-            return;
+        while (left < right) {
+            if (left >= right) {
+                return;
+            }
+            int m = partition(a, left, right);
+            qSort(a, left, m - 1);
+            left = m + 1;
         }
-        int m = partition(a, left, right);
-        qSort(a, left, m - 1);
-        qSort(a, m + 1, right);
     }
 
-    private static int partition(ArrayList a, int left, int right) {
+    private static int partition(ArrayList<Event> a, int left, int right) {
 
         swap(a, left, (int) (left + random() * (right - left + 1)));
         int i, j = left;
         for (i = left + 1; i <= right; i++) {
-            if (((Comparable) a[left]).compareTo(a[i]) >= 0) {
+            if (a.get(left).compareTo(a.get(i)) >= 0) {
+//              if (((Comparable) a.get(left)).compareTo(a.get(i)) >= 0) {
                 j++;
                 swap(a, j, i);
             }
