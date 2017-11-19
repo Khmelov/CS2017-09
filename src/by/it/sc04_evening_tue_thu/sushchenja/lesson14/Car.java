@@ -1,6 +1,6 @@
 package by.it.sc04_evening_tue_thu.sushchenja.lesson14;
 
-public class Car {
+public class Car extends AbstractCar{
     private int speed;
     public Car (int speed) {
         this.speed=speed;
