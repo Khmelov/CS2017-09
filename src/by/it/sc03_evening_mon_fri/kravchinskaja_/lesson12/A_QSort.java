@@ -47,23 +47,51 @@ import java.util.Scanner;
 
 public class A_QSort {
 
+//events point+segmenr
+
+    private class Event implements Comparable<Event>{
+        int time;
+        int type; //-1 - off, 0 - point, -1 - on
+
+        public Event (int time, int type){
+            this.time=time;
+            this.type=type;
+        }
+
+        @Override
+
+        public String toString(){
+            return "e("+time+", "+type+") ";
+        }
+
+        public int compareTo(Event otherEvent) {
+
+            int res = this.time- otherEvent.time;
+            if (res==0)
+                res = this.type+otherEvent.type;
+// return this.time-otherEvent.time;
+            return res;
+
+        }
+    }
+
     //отрезок
-    private class Segment  implements Comparable<Segment>{
+    private class Segment implements Comparable<Segment>{
         int start;
         int stop;
 
         Segment(int start, int stop){
             this.start = start;
             this.stop = stop;
-            //тут можно доделать конструктор на случай если
-            //концы отрезков придут в обратном порядке
+//тут можно доделать конструктор на случай если
+//концы отрезков придут в обратном порядке
         }
 
         @Override
         public int compareTo(Segment otherSegment) {
-            //подумайте, что должен возвращать компаратор отрезков
-            //и нужен ли он вообще.
-            return this.stop-otherSegment.stop;
+//подумайте, что должен возвращать компаратор отрезков
+//и нужен ли он вообще.
+            return 0;
         }
 
         @Override
@@ -72,113 +100,101 @@ public class A_QSort {
         }
     }
     private int partition(int[] a, int left, int right) {
-        int x=a[left],j=left;
-        for (int i = left+1; i <= right; i++) {
-            if(a[i]<=x){
+        int x=a[left];
+        int j=left;
+        for (int i=left+1; i<=right; i++){
+
+            if (a[i]<=x){
                 j++;
                 int tmp=a[j];
                 a[j]=a[i];
                 a[i]=tmp;
             }
+
         }
+
         int tmp=a[j];
         a[j]=a[left];
         a[left]=tmp;
         return j;
     }
-    private int partition(Segment[] a, int left, int right) {
-        //int x=a[left].stop,
-        int j=left;
-        for (int i = left+1; i <= right; i++) {
-            if(a[i].compareTo(a[left])>0){
-                j++;
-                Segment tmp=a[j];
-                a[j]=a[i];
-                a[i]=tmp;
-            }
-        }
-        Segment tmp=a[j];
-        a[j]=a[left];
-        a[left]=tmp;
-        return j;
-    }
-    void qsort(int[] a, int left, int right){
-        if(left<right) {
-            int m = partition(a, left, right);
-            qsort(a, left, m-1);
-            qsort(a, m + 1, right);
-        }
-    }
-    void qsort(Segment[] a, int left, int right){
-        if(left<right) {
-            int m = partition(a, left, right);
-            qsort(a, left, m-1);
-            qsort(a, m + 1, right);
-        }
-    }
-    void qsort(int[] a){
-        qsort(a,0, a.length-1);
-    }
-    void qsort(Segment[] a){
-        qsort(a,0, a.length-1);
+
+    private void qSort (int [] a, int left, int right){
+
+        if (left>=right)
+            return;;
+
+        int m=partition(a,left,right);
+        qSort(a,left,m-1);
+        qSort(a,m+1,right);
+
     }
 
-    public int[] res(Segment[] segments, int[] points){
-        int[] result=new int[points.length];
-        for (int i = 0; i < points.length; i++) {
-            int j=0;
-            while(j<segments.length){
-                if(points[i]>segments[j].stop) break;
-                    //если текущая точка больше чем конец отрезка прерываем цикл,
-                    //т.к. конец следующего отрезка меньше текущего и проверять его нет необходимости
-                else {
-                    if (points[i] >= segments[j].start && points[i] <= segments[j].stop) result[i]++;
-                    //если отрезок содержит текущую точку, то инкрементируем элемент искомого массива
-                }
-                j++;//переход к следующему отрезку
-            }
-            //System.out.println(result[i]);
-        }
-        return result;
+    private void qSort (int[] a){
+        qSort(a,0,a.length-1);
+
     }
+
     int[] getAccessory(InputStream stream) throws FileNotFoundException {
-        //подготовка к чтению данных
+//подготовка к чтению данных
         Scanner scanner = new Scanner(stream);
-        //!!!!!!!!!!!!!!!!!!!!!!!!!     НАЧАЛО ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
-        //число отрезков отсортированного массива
+//!!!!!!!!!!!!!!!!!!!!!!!!! НАЧАЛО ЗАДАЧИ !!!!!!!!!!!!!!!!!!!!!!!!!
+//число отрезков отсортированного массива
         int n = scanner.nextInt();
         Segment[] segments=new Segment[n];
-        //число точек
+//число точек
         int m = scanner.nextInt();
         int[] points=new int[m];
         int[] result=new int[m];
 
-        //читаем сами отрезки
+        Event[] events=new Event[2*n+m];
+        int counterEvent=0;
+
+//читаем сами отрезки
         for (int i = 0; i < n; i++) {
-            //читаем начало и конец каждого отрезка
+//читаем начало и конец каждого отрезка
             segments[i]=new Segment(scanner.nextInt(),scanner.nextInt());
+            events[counterEvent++] =new Event(segments[i].start,+1);
+            events[counterEvent++] =new Event(segments[i].stop,-1);
+
         }
         System.out.println("segments="+ Arrays.toString(segments));
-        //читаем точки
+//читаем точки
         for (int i = 0; i < m; i++) {
             points[i]=scanner.nextInt();
+            events[counterEvent++]= new Event(points[i],0);
         }
         System.out.println("points="+ Arrays.toString(points));
-        //тут реализуйте логику задачи
-        //ОБЯЗАТЕЛЬНО с применением быстрой сортировки
+//тут реализуйте логику задачи
+//ОБЯЗАТЕЛЬНО с применением быстрой сортировки
+        Arrays.sort(events);
 
-        qsort(points);                                                  //сортировка точек(!по возрастанию!)
-        System.out.println("points sort="+ Arrays.toString(points));
-        qsort(segments);                                                //сортировка сегментов по stop(!по убыванию!)
-        System.out.println("segments sort="+ Arrays.toString(segments));
-        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
-        return res(segments,points);
+        System.out.println("Sorted points="+Arrays.toString(events));
+
+        int p=0;
+        int camOn=0;
+        for (int i=0; i<events.length; i++){
+            if (events[i].type==0) {
+                result[p++] = camOn;
+            }
+            else{
+                camOn=camOn+events[i].type;}
+
+        }
+
+        System.out.println("Sorted points="+Arrays.toString(points));
+
+//!!!!!!!!!!!!!!!!!!!!!!!!! КОНЕЦ ЗАДАЧИ !!!!!!!!!!!!!!!!!!!!!!!!!
+        return result;
     }
+
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/sc04_evening_tue_thu/bukhtik/lesson12/dataA.txt");
+        InputStream stream = new FileInputStream(root + "by/it/akhmelev/lesson12/dataA.txt"); //поменять на свое
         A_QSort instance = new A_QSort();
         int[] result=instance.getAccessory(stream);
+
         System.out.println("result="+ Arrays.toString(result));
     }
+
 }
