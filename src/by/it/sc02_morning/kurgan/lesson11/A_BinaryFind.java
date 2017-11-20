@@ -1,4 +1,4 @@
-package by.it.sc02_morning.sabitova.lesson11;
+package by.it.sc02_morning.kurgan.lesson11;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,6 +41,7 @@ public class A_BinaryFind {
         for (int i = 1; i <= n; i++) {
             a[i-1] = scanner.nextInt();
         }
+
         //размер массива индексов
         int k = scanner.nextInt();
         int[] result=new int[k];
@@ -49,11 +50,16 @@ public class A_BinaryFind {
             //тут реализуйте бинарный поиск индекса
             //для значения value в саммиве a
             //результат поиска сохраните в result[i]
-            result[i] = binarySearch(a, value);
+
+
+
+
+            result[i]=-1;
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
     }
+
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
@@ -66,18 +72,5 @@ public class A_BinaryFind {
             System.out.print(index+" ");
         }
     }
-            private static int binarySearch(int[] a, int value) {
-                int left = 0;
-                int right = a.length - 1;
-                while (left <= right) {
-                    int c = (left + right) / 2;
-                    if (a[c] == value) {
-                        return c + 1;
-                    } else if (value < a[c]) {
-                        right = c - 1;
-                    } else {
-                        left = c + 1;
-                        return -1;
-                    }
-                }
 
+}
