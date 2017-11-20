@@ -1,4 +1,5 @@
 package by.it.sc02_morning.kurgan.lesson13;
+import java.util.Scanner;
 /*
 Напишите отдельный класс Salary который принимает в конструктор
 массив double[]
@@ -29,4 +30,27 @@ package by.it.sc02_morning.kurgan.lesson13;
 */
 public class TaskB1 {
 
+    public static void main(String[] args) {
+        double [] m=new double[12];
+        Scanner sc=new Scanner(System.in);
+        for (int i = 0; i <m.length ; i++) {
+            m [i]=sc.nextDouble();
+        }
+
+        Salary salary = new Salary(m);
+
+        System.out.println(salary.toString());
+        System.out.println(salary.getSum());
+
+        Salary salary20=new Salary(m);
+        salary20.setSalary(20);
+        System.out.println(salary20.toString());
+
+        System.out.println(salary.getSum(20));
+
+        salary.setSalary(50);
+        salary.sort();
+        System.out.println(salary.toString());
+        System.out.println(salary.getSum());
+    }
 }
