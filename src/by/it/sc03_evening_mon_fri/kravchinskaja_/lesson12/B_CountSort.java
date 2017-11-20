@@ -24,15 +24,24 @@ public class B_CountSort {
         int[] points=new int[n];
 
         //читаем точки
+        int min =10000;
+        int max = 0;
         for (int i = 0; i < n; i++) {
             points[i]=scanner.nextInt();
+            if (points[i]>max) max=points[i];
+            if (points[i]<min) min=points[i];
         }
         //тут реализуйте логику задачи с применением сортировки подсчетом
-
-
-
-
-
+        int [] count =  new int [max-min+1];
+        for (int i = 0; i< points.length; i++){
+            count[points[i]-min]++;
+        }
+        int idx=0;
+        for (int i = 0; i< count.length; i++){
+            for (int j = 0; j<count[i]; j++){
+                points[idx++]= i+min;
+            }
+        }
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return points;
     }
