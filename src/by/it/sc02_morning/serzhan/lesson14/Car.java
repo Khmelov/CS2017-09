@@ -1,20 +1,21 @@
 package by.it.sc02_morning.serzhan.lesson14;
 
-public class Car {
+public class Car extends AbstractCar {
     private int speed;
     public Car(int speed){
-        this.speed=speed;
-
-
+        super(speed);
     }
-    void start(){
-        System.out.println(this.toString()+" поехал со скоростью "+ speed + " км/ч");
+   public void fire(){
+        System.out.println(this+" включил зажигание ");
     }
-    void stop(){
-        System.out.println(this.toString()+" остановился ");
+     public void start(){
+        System.out.println(this+" поехал со скоростью "+ getSpeed() + " км/ч");
     }
-    void beep(){
-        System.out.println(this.toString()+" сигналит: Пи-бип! "+ speed + " км/ч");
+     public void stop(){
+        System.out.println(this+" остановился ");
+    }
+    public void beep(){
+        System.out.println(this+" сигналит: Пи-бип! ");
     }
     @Override
     public String toString(){

@@ -13,7 +13,7 @@ public class Maz extends Car {
         return "Maz";
     }
     @Override
-    void beep(){
+    public void beep(){
         System.out.println(this+ " сигналит: У-у-у-у!");;
     }
 
