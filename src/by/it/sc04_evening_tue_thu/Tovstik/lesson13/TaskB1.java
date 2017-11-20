@@ -42,7 +42,7 @@ public class TaskB1
             salaries[i]= sc.nextDouble();
         }
 
-        Salary sal = new Salary();
+        Salary sal = new Salary(salaries);
 
 
         System.out.println(Arrays.toString(salaries));

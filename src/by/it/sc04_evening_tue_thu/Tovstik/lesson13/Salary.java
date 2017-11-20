@@ -68,4 +68,14 @@ class Salary
 
     }
 
+    public Salary(double[] salaries)
+    {
+        this.a = salaries.length;
+        this.salary = new double[this.a];
+        for (int i = 0; i < this.a ; i++)
+        {
+            this.salary[i] = salaries[i];
+        }
+    }
+
 }
