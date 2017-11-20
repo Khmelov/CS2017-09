@@ -43,7 +43,7 @@ public class TaskB1 {
             salary[i] = sc.nextInt();
         }
 
-        Salary instance = new TaskB1().newSalary(salary);
+        Salary instance = new TaskB1().new Salary(salary);
         System.out.println(instance);
         System.out.println(instance.getSum());
         System.out.println(Arrays.toString(instance.getSalary(20)));
@@ -53,68 +53,52 @@ public class TaskB1 {
         System.out.println(instance.getSum(50));
     }
 
-    public Salary newSalary(double[] salary) {
-        return new Salary(salary);
+    class Salary {
+
+        private double[] salary;
+
+        Salary(double[] salary) {
+            this.salary = salary.clone();
+        }
+
+        double getSum() {
+            double sum = 0;
+            for (double each : salary) {
+                sum += each;
+            }
+            return sum;
+        }
+
+        double getSum(double persent) {
+
+            return getSum() * (1 + persent / 100);
+        }
+
+        double[] getSalary() {
+            return salary;
+        }
+
+        double[] getSalary(double percent) {
+            double[] salaryPercent = salary.clone();
+            for (int i = 0; i < salaryPercent.length; i++) {
+                salaryPercent[i] = Math.ceil(salaryPercent[i] * (1 + percent / 100) * 10) / 10;
+            }
+            return salaryPercent;
+        }
+
+        void setSalary(double percent) {
+            salary = getSalary(percent);
+        }
+
+        void sort() {
+            Arrays.sort(salary);
+        }
+
+        @Override
+        public String toString() {
+            return Arrays.toString(salary);
+        }
     }
-
-   /* выведите на консоль по очереди:
-
-    неотсортированные зарплаты без надбавок
-    сумму без надбавок.
-    неотсортированные зарплаты с надбавкой в 20%
-    сумму с этой надбавкой.
-    отсортированные зарплаты с надбавкой в 50%
-    сумму с этой надбавкой.*/
 }
 
-class Salary {
 
-    private double[] salary;
-
-    public Salary(double[] salary) {
-        this.salary = salary.clone();
-    }
-
-    public double getSum() {
-        double sum = 0;
-        for (double each : salary) {
-            sum += each;
-        }
-        return sum;
-    }
-
-    public double getSum(double persent) {
-        double sum = 0;
-        for (double each : salary) {
-            sum += each;
-        }
-        return sum * (1 + persent / 100);
-    }
-
-    double[] getSalary() {
-        return salary;
-    }
-
-    double[] getSalary(double percent) {
-        double[] salaryPercent = salary.clone();
-        for (int i = 0; i < salaryPercent.length; i++) {
-            salaryPercent[i] = Math.ceil(salaryPercent[i] * (1 + percent / 100) * 10) / 10;
-        }
-        return salaryPercent;
-    }
-
-    void setSalary(double percent) {
-        for (int i = 0; i < salary.length; i++) {
-            salary[i] = Math.ceil(salary[i] * (1 + percent) * 10) / 10;
-        }
-    }
-
-    void sort() {
-        Arrays.sort(salary);
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(salary);
-    }
-}
