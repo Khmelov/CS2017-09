@@ -46,6 +46,9 @@ public class B1Sheduler {
         //ваше решение.
         System.out.println(Arrays.toString(events));
         Arrays.sort(events);
+        System.out.println(Arrays.toString(events));
+        int i=0;
+
 
 
 

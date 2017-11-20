@@ -55,6 +55,17 @@ public class A_BinaryFind {
 
 
             result[i]=-1;
+            int first=0;
+            int scnd=a.length-1;
+            while (first<=scnd) {
+                int thrd=(first+scnd)/2;
+                if (a[thrd] == value) {
+                    result[i] = thrd+1;
+                    break;
+                    } else if (a[thrd]<value) {
+                    first=thrd+1;
+                } else scnd=thrd-1;
+            }
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
