@@ -109,7 +109,7 @@ public class C_QSortOptimized {
         events.add(new Event(Integer.MAX_VALUE, 0));
 
         qSort(events);
-//        Collections.sort(events);
+
         for (int i = 1; i < events.size();) {
             if (events.get(i).time == events.get(i - 1).time) {
                 events.get(i - 1).numCam += events.get(i).numCam;
@@ -119,17 +119,6 @@ public class C_QSortOptimized {
                 i++;
             }
         }
-
-        //check events structure
-        for (Event each : events) {
-            System.out.print(each.time + " ");
-        }
-        System.out.println();
-        for (Event each :
-                events) {
-            System.out.print(each.numCam + " ");
-        }
-        System.out.println();
 
         //читаем точки
         for (int i = 0; i < m; i++) {
@@ -165,37 +154,38 @@ public class C_QSortOptimized {
         }
     }
 
-//    TODO    рекурсионные вызовы должны проводится на основе 3-разбиения
     private static void qSort(ArrayList a) {
 
         qSort(a, 0, a.size() - 1);
     }
 
-    private static void qSort(ArrayList a, int left, int right) {
+    private static void qSort(ArrayList a, int lo, int hi) {
 
-        while (left < right) {
-            if (left >= right) {
-                return;
-            }
-            int m = partition(a, left, right);
-            qSort(a, left, m - 1);
-            left = m + 1;
+        int left, right;
+        while (lo < hi) {
+            int[] temp = partition(a, lo, hi);
+            left = temp[0];
+            right = temp[1];
+            qSort(a, lo, left - 1);
+            lo = right + 1;
         }
     }
 
-    private static int partition(ArrayList<Event> a, int left, int right) {
+    private static int[] partition(ArrayList<Event> a, int left, int right) {
 
         swap(a, left, (int) (left + random() * (right - left + 1)));
-        int i, j = left;
-        for (i = left + 1; i <= right; i++) {
-            if (a.get(left).compareTo(a.get(i)) >= 0) {
-//              if (((Comparable) a.get(left)).compareTo(a.get(i)) >= 0) {
+        int i, j;
+        for (i = left + 1, j = i; j <= right;) {
+            if (a.get(j).compareTo(a.get(left)) == -1) {
+                swap(a, i++, j++);
+            } else if (a.get(j).compareTo(a.get(left)) == 1) {
+                swap(a, j, right--);
+            } else {
                 j++;
-                swap(a, j, i);
             }
         }
-        swap(a, left, j);
-        return j;
+        swap(a, left, --i);
+        return new int[]{i, right};
     }
 
 }
