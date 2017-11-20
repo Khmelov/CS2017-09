@@ -52,12 +52,11 @@ public class B_CountSort {
 
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/akhmelev/lesson12/dataB.txt");
+        InputStream stream = new FileInputStream(root + "by/it/sc02_morning/sinitsyna/lesson12/dataB.txt");
         B_CountSort instance = new B_CountSort();
         int[] result=instance.countSort(stream);
         for (int index:result){
             System.out.print(index+" ");
         }
     }
-
 }

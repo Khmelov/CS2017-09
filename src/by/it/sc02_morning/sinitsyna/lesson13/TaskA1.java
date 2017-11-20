@@ -24,28 +24,13 @@ import java.util.Arrays;
 */
 public class TaskA1 {
 
-    static double sum(double[] salary) {
-        double sum = 0;
-        for (double s : salary) sum+=s;
-        return sum;
-    }
-    static double[] add(double[] salary, double percent) {
-        double[] result=new double[salary.length];
-        for (int i=0; i< salary.length; i++) {
-            result[i]=salary[i]*(100+percent)/100;
-        }
-        return result;
-    }
-
-    static void sort(double[] salary) {
-        Arrays.sort(salary);
-    }
-
     public static void main(String[] args) {
         double[] salary=new double[12];
-       // Scanner scanner=new Scanner(System.in);
+
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+
         for (int i = 0; i<salary.length; i++) {
-         //   salary[i] = scanner.nextDouble();
+            salary[i] = sc.nextDouble();
 
         }
         System.out.println(Arrays.toString(salary));
@@ -53,8 +38,29 @@ public class TaskA1 {
         System.out.println(Arrays.toString(add(salary,20)));
         System.out.println(sum(add(salary,20)));
         Arrays.sort(salary);
+        System.out.println(Arrays.toString(add(salary, 50)));
         System.out.println(sum(add(salary,50)));
 
     }
 
+    static double sum(double[] salary) {
+        double sum = 0;
+        for (int i = 0; i < salary.length; i++) {
+            sum = sum + salary[i];
+        }
+        return sum;
+    }
+    static double[] add(double[] salary, double percent) {
+        double[] salary2=new double[12];
+
+        for (int i=0; i< salary.length; i++) {
+            salary2[i]=salary[i] + (salary[i] * percent)/100;
+        }
+        return salary2;
+    }
+
+    static void sort(double[] salary) {
+
+        Arrays.sort(salary);
+    }
 }
