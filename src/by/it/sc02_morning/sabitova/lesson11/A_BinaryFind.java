@@ -67,16 +67,16 @@ public class A_BinaryFind {
         }
     }
             private static int binarySearch(int[] a, int value) {
-            int left = 0;
-            int right = a.length - 1;
-            while (left <= right) {
-                int c = (left + right) / 2;
-                if (a[c] == value) {
-                    return c + 1;
-                } else if (value < a[c]) {
-                    right = c - 1;
-                } else {
-                    left = c + 1;
-            return -1;
-        }
-}
+                int left = 0;
+                int right = a.length - 1;
+                while (left <= right) {
+                    int c = (left + right) / 2;
+                    if (a[c] == value) {
+                        return c + 1;
+                    } else if (value < a[c]) {
+                        right = c - 1;
+                    } else {
+                        left = c + 1;
+                        return -1;
+                    }
+                }

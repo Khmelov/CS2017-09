@@ -13,8 +13,6 @@ import java.util.Scanner;
 */
 
 public class B_CountSort {
-
-
     int[] countSort(InputStream stream) throws FileNotFoundException {
         //подготовка к чтению данных
         Scanner scanner = new Scanner(stream);
@@ -22,30 +20,22 @@ public class B_CountSort {
         //размер массива
         int n = scanner.nextInt();
         int[] points=new int[n];
-
         //читаем точки
         for (int i = 0; i < n; i++) {
             points[i]=scanner.nextInt();
         }
         //тут реализуйте логику задачи с применением сортировки подсчетом
 
-
-
-
-
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return points;
     }
-
-
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
         InputStream stream = new FileInputStream(root + "by/it/akhmelev/lesson12/dataB.txt");
-        B_CountSort instance = new B_CountSort();
+        by.it.sc02_morning.sabitova.lesson12.B_CountSort instance = new by.it.sc02_morning.sabitova.lesson12.B_CountSort();
         int[] result=instance.countSort(stream);
         for (int index:result){
             System.out.print(index+" ");
         }
     }
-
 }
