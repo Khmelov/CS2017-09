@@ -6,7 +6,6 @@ public class Mercedes extends Car {
         super((speed >80)?150:speed);
     }
 
-
     void beep() {
 
         System.out.println(this.toString() +" сигналит: Фа-фа!");
@@ -20,5 +19,4 @@ public class Mercedes extends Car {
         return "Mercedes";
 
     }
-
 }

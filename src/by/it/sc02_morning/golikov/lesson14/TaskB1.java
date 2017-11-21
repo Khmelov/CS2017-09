@@ -15,4 +15,17 @@ package by.it.sc02_morning.golikov.lesson14;
 
 public class TaskB1 {
 
+    public static void main(String[] args) {
+        Car[] cars = new Car[3];
+        cars[0] = new Car(100);
+        cars[1] = new Maz(60);
+        cars[2] = new Mercedes(150);
+
+        for (int i = 0; i < cars.length; i++) {
+            cars[i].fire();
+            cars[i].start();
+            cars[i].stop();
+            cars[i].beep();
+        }
+    }
 }
