@@ -12,7 +12,7 @@ public class Mercedes extends Car {
         return "Mercedes";
     }
     @Override
-    void beep(){
+   public void beep(){
         System.out.println(this+ " сигналит: Фа-фа!");;
     }
 

@@ -14,5 +14,15 @@ package by.it.sc02_morning.serzhan.lesson14;
 */
 
 public class TaskB1 {
-
+    public static void main(String[] args) {
+        Car[] cars = {new Car(100), new Maz(60), new Mercedes(150)};
+        for (Car car : cars) {
+            car.fire();
+            car.start();
+            car.beep();
+            car.stop();
+        }
+    }
 }
+
+
