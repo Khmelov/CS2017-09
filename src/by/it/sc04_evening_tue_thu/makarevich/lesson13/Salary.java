@@ -10,7 +10,7 @@ public class Salary {
 
 
     Salary(double[] salary){
-       this.salary = salary;
+        this.salary = salary;
     }
 
     Salary(String[] salaryString){
@@ -36,9 +36,13 @@ public class Salary {
         return sum; }; // считает сумму всех зарплат с надбавкой в percent%.
 
     public double[] getSalary() {
+        System.out.print("[");
+        String delemtr="";
         for (int i = 0; i <salary.length ; i++) {
-            System.out.print(salary[i]+", ");
+            System.out.print(delemtr+salary[i]);
+            delemtr=", ";
         }
+        System.out.println("]");
         return salary; }; // возвращает массив из приватного поля.
 
     double[] getSalary(double percent){
