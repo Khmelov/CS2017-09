@@ -1,6 +1,7 @@
 package by.it.sc04_evening_tue_thu.koktysh.lesson10;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /*
 Даны желаемые интервальные события events в аудитории.
@@ -43,12 +44,20 @@ public class B1Sheduler {
         List<Event> result;
         result = new ArrayList<>();
         //ваше решение.
+        Arrays.sort(events);
+        System.out.println(Arrays.toString(events));
 
-System.out.println(events);
-
-
-
-
+        System.out.println(Arrays.toString(events));
+        int i=0;
+        double lasttime=0;
+        while (i<events.length) {
+            if (events[i].getStart()>=lasttime) {
+                result.add(events[i]);
+                lasttime = events[i].getStop();
+            }
+            while (i<events.length && events[i].getStart()<lasttime)
+                i++;
+        }
         return result;                        //вернем итог
     }
 }

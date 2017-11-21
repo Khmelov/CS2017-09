@@ -30,7 +30,7 @@ public class A1VideoRegistrator {
     }
 
     //модификаторы доступа опущены для возможности тестирования
-    List<Double> calcStartTimes(double[] events, double workDuration){
+    List<Double> calcStartTimes(double[] events, double workDuration) {
         //events - события которые нужно зарегистрировать
         //workDuration время работы видеокамеры после старта
         List<Double> result;
@@ -41,24 +41,21 @@ public class A1VideoRegistrator {
                 C*(n * n) + C1*n = O(n*n) */
         //комментарии от проверочного решения сохранены для подсказки, но вы можете их удалить.
         //Ваше решение тут
-        int n=events.length;
-        int i=0;                              //i - это индекс события events[i]
-        Arrays.sort(events);
-                                             //подготовка к жадному поглощению массива событий
-
-         while (i<n)   {
-           double start=events[i];
-
-           double stop=start+workDuration;
-           result.add(start);
-             while (i < n && events[i] < stop)
-             i++;}
-
-             return result;
-             }
-
-            //пока есть незарегистрированные события
-         }
+        int i = 0;                                //i - это индекс события events[i]
+        int n = events.length;
+        Arrays.sort(events);                    //подготовка к жадному поглощению массива событий
+        while (i < n) {                //пока есть незарегистрированные события
+            double start = events[i];           //получим одно событие по левому краю
+            // и запомним время старта видеокамеры
+            double stop = start + workDuration;   //вычислим момент окончания работы видеокамеры
+            result.add(start);
+            while (i < n && events[i] <= stop) {      //и теперь пропустим все покрываемые
+                i++;                                                //за время работы видеокамеры события
+            }                                       //увеличивая индекс.
+            //вернем итог
+        }return result;
+    }
+}
                                               //получим одно событие по левому краю
                                               //и запомним время старта видеокамеры
                                               //вычислим момент окончания работы видеокамеры

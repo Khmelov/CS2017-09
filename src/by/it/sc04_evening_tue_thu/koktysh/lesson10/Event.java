@@ -14,6 +14,14 @@ class Event implements Comparable<Event>{
         this.stop = stop;
     }
 
+    public int getStart() {
+        return start;
+    }
+
+    public int getStop() {
+        return stop;
+    }
+
     @Override
     public String toString() {
         return "(" + start + ":" + stop + ")";
@@ -29,9 +37,10 @@ class Event implements Comparable<Event>{
         //подсказка, правильно написанный компаратор возвращает
         //1 если порядок следования в массиве или коллекции this и otherEvent правильный
         //0 если объекты равны
-        //-1 если порядок следования в массиве  или коллекции this и otherEvent неправильный
+        //-1 если порядок следования в массиве  или коллекции this и otherEvent неправильный;
+        return this.stop-otherEvent.stop;
 
-        return this.start=otherEvent.start;
-
+        //if (this.stop-otherEvent.stop > 0)return 1;
     }
+
 }
