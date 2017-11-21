@@ -48,7 +48,7 @@ public class TaskB1 {
         System.out.println("сумму без надбавок. " + salary1.getSum());
         System.out.println("неотсортированные зарплаты с надбавкой в 20% = " + Arrays.toString(salary1.getSalary(20)));
         System.out.println("сумму с этой надбавкой. " + salary1.getSum(20));
-        salary1.sort();
+        salary1.QuickSort(salaryNew);
         System.out.println("отсортированные зарплаты с надбавкой в 50% = " + Arrays.toString(salary1.getSalary(50)));
         System.out.println("сумму с этой надбавкой. " + salary1.getSum(50));
     }
