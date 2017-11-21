@@ -1,6 +1,7 @@
 package by.it.sc04_evening_tue_thu.Tovstik.lesson14;
 
 public class Maz extends Car {
+
     Maz(int speed) {
         super(speed <= 80? speed : 80);
     }
