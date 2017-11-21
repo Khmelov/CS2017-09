@@ -49,14 +49,10 @@ public class B1Sheduler {
         System.out.println(Arrays.toString(events));
         Arrays.sort(events);                                     //подготовка к жадному поглощению массива событий
 
-        while (i<n) {
-
-
-            //  while (i < n && events[i] <=stop) {
-            i++;
+        result.add(events[0]);
+        for (i = 1; i < events.length; i++) {
+            if(events[i].getStart()>=result.get(result.size()-1).getStop()) result.add(events[i]);
         }
-           Arrays.sort(events);
-        System.out.println(Arrays.toString(events));
 
         return result;                        //вернем итог
     }

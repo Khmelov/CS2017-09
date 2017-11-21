@@ -21,38 +21,36 @@ Sample Output:
 2 2 3 9 9
 */
 public class B_MergeSort {
-
-    private  int[] merge(int[] a,int[] b){
-    int[] result=new int[a.length+b.length];
-    int ai=0;
-    int bi=0;
+    private int[] merge(int[]a, int[]b) {
+        int[] result=new int[a.length+b.length];
+        int ai=0;
+        int bi=0;
         for (int i = 0; i < result.length; i++) {
             if (ai==a.length)
                 result[i]=b[bi++];
-            if (bi==b.length)
+            else if (bi==b.length)
                 result[i]=a[ai++];
-
-            if (a[ai]<b[bi])
+            else if (a[ai]<b[bi])
                 result[i]=a[ai++];
-
             else
                 result[i]=b[bi++];
         }
-
-    return result;
+        return result;
     }
-    private  int[] mergeSort(int[] mas,int left, int right){
-if (left==right){
-    int[] one=new  int[1];
-    one[0]=mas[left];
-    return one;
-}
-     int mid=(left+right)/2;
-     int[] a=mergeSort(mas, left, mid);
-        int[] b=mergeSort(mas,  mid+1,right);
-        int[] res=merge(a, b);
+
+    private int [] mergeSort(int [] mas, int left, int right) {
+        if (left==right){
+            int[]one=new int[1];
+            one[0]=mas[left];
+            return one;
+        }
+        int mid =(left+right)>>1;
+        int [] a=mergeSort(mas, left, mid);
+        int [] b = mergeSort(mas,mid+1,right);
+        int [] res=merge(a,b);
         return res;
- }
+    }
+
     int[] getMergeSort(InputStream stream) throws FileNotFoundException {
         //подготовка к чтению данных
         Scanner scanner = new Scanner(stream);
@@ -68,13 +66,10 @@ if (left==right){
         // https://ru.wikipedia.org/wiki/Сортировка_слиянием
         //!!!!!!!!!!!!!!!!!!!!!!!!     тут ваше решение   !!!!!!!!!!!!!!!!!!!!!!!!
 
+        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!
 
-
-
-
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
-        return a;
+        int result[] = mergeSort (a, 0, a.length-1);
+        return result;
     }
 
 

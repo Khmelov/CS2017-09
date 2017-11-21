@@ -52,25 +52,10 @@ public class A_BinaryFind {
             //для значения value в саммиве a
             //результат поиска сохраните в result[i]
 int index= Arrays.binarySearch(a,value);
-           /* int find(int[]arr, int val){
-                int last = arr.length - 1;
-                int first = 0;
-
-                while (first <= last) {
-                    int middle = (first + last) / 2;// индекс среднего элем
-                    if (arr[middle] == val)
-                        return middle;
-                    else if (arr[middle] < val) {
-                        first = middle + 1;
-                    } else {
-                        last = middle - 1;
-                    }
-                }
-                return middle;
+            if(index<0){
+                result[i]=-1;
             }
-*/
-            result[i]=-1;
-        }
+            else result[i]=index+1; }
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
     }
