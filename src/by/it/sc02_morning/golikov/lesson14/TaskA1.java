@@ -28,11 +28,11 @@ public class TaskA1 {
 
     public static void main(String[] args) {
 
-       // Car[] cars = new Car[][new Maz(60), new Mercedes(150)];
-        Car[] cars = new Car[3];
-        cars[0] = new Car(100);
-        cars[1] = new Maz(60);
-        cars[2] = new Mercedes(150);
+        Car[] cars = new Car[]{new Car(100), new Maz(60), new Mercedes(150)};
+//        Car[] cars = new Car[3];
+//        cars[0] = new Car(100);
+//        cars[1] = new Maz(60);
+//        cars[2] = new Mercedes(150);
 
         for (int i = 0; i < cars.length; i++) {
             cars[i].start();
@@ -56,5 +56,4 @@ public class TaskA1 {
 //        car.beep();
 
     }
-
 }

@@ -1,6 +1,6 @@
 package by.it.sc02_morning.golikov.lesson14;
 
-public class Car {
+public class Car extends AbstractCar {
 
     private int speed;
 
@@ -13,11 +13,13 @@ public class Car {
         System.out.println(this.toString() +" поехал со скоростью "+ speed +" км/ч");
 
     }
+
     void stop() {
 
         System.out.println(this.toString() +" остановился");
 
     }
+
     void beep() {
 
         System.out.println(this.toString() +" сигналит: Пи-бип!");
@@ -31,5 +33,4 @@ public class Car {
         return "Автомобиль";
 
     }
-
 }

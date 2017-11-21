@@ -11,9 +11,6 @@ public class Maz extends Car {
 //            speed = speed;
     }
 
-
-
-
     void beep() {
 
         System.out.println(this.toString() +" сигналит: У-у-у-у!");
@@ -27,5 +24,4 @@ public class Maz extends Car {
         return "Maz";
 
     }
-
 }
