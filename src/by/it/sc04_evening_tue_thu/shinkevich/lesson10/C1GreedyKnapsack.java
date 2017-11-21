@@ -34,7 +34,7 @@ public class C1GreedyKnapsack {
         for (Item item:items) {
             System.out.println(item);
         }
-        System.out.printf("Всего предметов: %d. Рюкзак вмещает %d кг.\n",n,W);
+        System.out.printf("Всего п едметов: %d. Рюкзак вмещает %d кг.\n",n,W);
 
         //тут необходимо реализовать решение задачи
         //итогом является максимально воможная стоимость вещей в рюкзаке
