@@ -16,6 +16,34 @@ package by.it.sc02_morning.kurgan.lesson06;
  */
 
 
+import java.util.Scanner;
+
 public class TaskB3 {
+    public static void main(String[] args) {
+        int min=0;
+        int max=0;
+        int sum=0;
+        int number=0;
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        number=sc.nextInt();
+        min=number;
+        max=number;
+        sum+=number;
+        for(int i=0;i<n-1;++i){
+            number=sc.nextInt();
+            if (number<min) {
+                min=number;
+            }
+            if (number>max) {
+                max=number;
+            }
+            sum+=number;
+        }
+        System.out.println("Minimum = "+min);
+        System.out.println("Maximum = "+max);
+        System.out.println("Average = "+(double)sum/n);
+    }
+
 
 }

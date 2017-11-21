@@ -25,4 +25,5 @@ package by.it.sc02_morning.serzhan.lesson05;
 
 public class TaskC3 {
 
+
 }

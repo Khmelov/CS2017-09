@@ -12,8 +12,7 @@ package by.it.sc04_evening_tue_thu.zhyravski.lesson05;
 1. Программа должна считывать число c клавиатуры.
 2. Программа должна выводить текст на экран.
 3. Если введено число от 1 до 7, необходимо вывести день недели.
-4. Если введено число не входящее в интервал от 1 до 7,
-    то вывести уведомление что такого дня недели не существует.
+4. Если введено число не входящее в интервал от 1 до 7, то вывести уведомление что такого дня недели не существует.
 5.  Нельзя использовать массивы или коллекции Java.
 
 Пример для номера 5:
@@ -24,6 +23,42 @@ package by.it.sc04_evening_tue_thu.zhyravski.lesson05;
 
  */
 
+import java.util.Scanner;
+
 public class TaskA2 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int numOfDay = scanner.nextInt();
+
+        switch (numOfDay) {
+            case (1):
+                System.out.println("понедельник");
+                break;
+            case (2):
+                System.out.println("вторник");
+                break;
+            case (3):
+                System.out.println("среда");
+                break;
+            case (4):
+                System.out.println("четверг");
+                break;
+            case (5):
+                System.out.println("пятница");
+                break;
+            case (6):
+                System.out.println("суббота");
+                break;
+            case (7):
+                System.out.println("воскресенье");
+                break;
+            default:
+                System.out.println("такого дня недели не существует");
+        }
+
+    }
 
 }

@@ -36,53 +36,53 @@ public class Testing {
     }
 
 // Хмелев. Я отключил вам тесты, т.к. без классов они у всех вызывают ошибку.
-// включите их обратно, когда выполните задания ( отключите комментарии Ctrl+/ )
-//    @Test
-//    public void testTaskB1() throws Exception {
-//        Testing testing = new Testing(TaskB1.class);
-//        testing.contains(
-//                "575.2220000610351\n" +
-//                        "111.111 7 73 273 111.111"
-//        );
-//    }
-//
-//    @Test
-//    public void testTaskB2() throws Exception {
-//        Testing testing;
-//        testing = new Testing(TaskB2.class, "2 5 3");
-//        testing.contains("-1.0");
-//        testing.contains("-1.5");
-//        testing = new Testing(TaskB2.class, "2 4 2");
-//        testing.contains("-1.0\n");
-//        testing = new Testing(TaskB2.class, "2 2 2");
-//        testing.contains("Отрицательный дискриминант");
-//    }
-//
-//    @Test
-//    public void testTaskC1() throws Exception {
-//        try {
-//            Method m = TaskC1.class.getDeclaredMethod("convertCelsiumToFahrenheit", int.class);
-//            assertEquals(104.0, (double) m.invoke(null, 40), 1e-22);
-//            assertEquals(68.0, (double) m.invoke(null, 20), 1e-22);
-//            assertEquals(32.0, (double) m.invoke(null, 0), 1e-22);
-//        } catch (NoSuchMethodException e) {
-//            org.junit.Assert.fail("Метод convertCelsiumToFahrenheit не найден");
-//        }
-//    }
-//
-//    @Test
-//    public void testTaskC2() throws Exception {
-//        try {
-//        Method m = TaskC2.class.getDeclaredMethod("sumDigitsInNumber", int.class);
-//        assertEquals((int) m.invoke(null, 5467), 22);
-//        assertEquals((int) m.invoke(null, 5555), 20);
-//        assertEquals((int) m.invoke(null, 1111), 4);
-//        assertEquals((int) m.invoke(null, 9993), 30);
-//        } catch (NoSuchMethodException e) {
-//            org.junit.Assert.fail("Метод sumDigitsInNumber не найден");
-//        }
-//    }
-//
+// включите их обратно, когда выполните задания ( отключите комментарии Ctrl+/ )Ctrl
+    @Test
+    public void testTaskB1() throws Exception {
+        Testing testing = new Testing(TaskB1.class);
+        testing.contains(
+                "575.2220000610351\n" +
+                        "111.111 7 73 273 111.111"
+        );
+    }
+
+    @Test
+    public void testTaskB2() throws Exception {
+        Testing testing;
+        testing = new Testing(TaskB2.class, "2 5 3");
+        testing.contains("-1.0");
+        testing.contains("-1.5");
+        testing = new Testing(TaskB2.class, "2 4 2");
+        testing.contains("-1.0\n");
+        testing = new Testing(TaskB2.class, "2 2 2");
+        testing.contains("Отрицательный дискриминант");
+    }
+
+    @Test
+    public void testTaskC1() throws Exception {
+        try {
+            Method m = TaskC1.class.getDeclaredMethod("convertCelsiumToFahrenheit", int.class);
+            assertEquals(104.0, (double) m.invoke(null, 40), 1e-22);
+            assertEquals(68.0, (double) m.invoke(null, 20), 1e-22);
+            assertEquals(32.0, (double) m.invoke(null, 0), 1e-22);
+        } catch (NoSuchMethodException e) {
+            org.junit.Assert.fail("Метод convertCelsiumToFahrenheit не найден");
+        }
+    }
+
+    @Test
+    public void testTaskC2() throws Exception {
+        try {
+        Method m = TaskC2.class.getDeclaredMethod("sumDigitsInNumber", int.class);
+        assertEquals((int) m.invoke(null, 5467), 22);
+        assertEquals((int) m.invoke(null, 5555), 20);
+        assertEquals((int) m.invoke(null, 1111), 4);
+        assertEquals((int) m.invoke(null, 9993), 30);
+        } catch (NoSuchMethodException e) {
+            org.junit.Assert.fail("Метод sumDigitsInNumber не найден");
+        }
+    }
+
 
     /*
     ===========================================================================================================

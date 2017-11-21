@@ -31,10 +31,17 @@ import java.util.Scanner;
 
 */
 class TaskC3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(getWeight(sc.nextInt()));
     }
 
+    public static double getWeight(int x) {
+        double z = 9.81;
+        double y = 3.86;
+        double w=x/z*y;
+        double newDouble = new BigDecimal(w).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return newDouble;
 
-
-            //double newDouble = new BigDecimal(a).setScale(2, RoundingMode.HALF_UP.UP).doubleValue();
-            //return newDouble;
-
+    }
+}

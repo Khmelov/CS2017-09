@@ -22,6 +22,40 @@ package by.it.sc04_evening_tue_thu.zhyravski.lesson05;
  */
 
 
+import java.util.Scanner;
+
 public class TaskA3 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int first = scanner.nextInt();
+        int second = scanner.nextInt();
+        int third = scanner.nextInt();
+
+        if (first == second) {
+
+            if (first == third) {
+                System.out.println(first + " " + second + " " + third);
+            } else {
+                System.out.println(first + " " + second);
+            }
+
+        } else if (first == third) {
+
+            System.out.println(first + " " + third);
+
+        } else if (second == third) {
+
+            System.out.println(second + " " + third);
+
+        } else {
+
+
+
+        }
+
+    }
 
 }

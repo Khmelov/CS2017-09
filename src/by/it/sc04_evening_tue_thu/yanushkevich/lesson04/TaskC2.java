@@ -1,4 +1,5 @@
 package by.it.sc04_evening_tue_thu.yanushkevich.lesson04;
+
 /*
     Сумма цифр четырехзначного числа
 
@@ -21,11 +22,26 @@ package by.it.sc04_evening_tue_thu.yanushkevich.lesson04;
 */
 public class TaskC2 {
 
+    static int sumDigitsInNumber(int a) {
+
+        int d4 =  a / 1000;
+        int d3 =  (a - d4 * 1000) / 100;
+        int d2 =  (a - d4 * 1000 - d3 * 100) / 10;
+        int d1 = a % 10;
+
+       /* int d2 = (int)(a % 100)/10;
+        int d3 = (int)(a % 1000)/100;
+        int d4 = (int) (a/1000);*/
+
+        System.out.println(d4 + " " + d3 + " " + d2 + " " + d1);
+        return (d1 + d2 + d3 + d4);
+
+    }
 
 
+    public static void main(String[] args) {
 
-//    public static void main(String[] args) {
-//        System.out.println(sumDigitsInNumber(5467));
-//    }
+        System.out.println(sumDigitsInNumber(5467));
+    }
 
 }
