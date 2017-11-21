@@ -1,4 +1,8 @@
 package by.it.sc02_morning.golikov.lesson13;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
 /*
 Напишите отдельный класс Salary который принимает в конструктор
 массив double[]
@@ -29,4 +33,23 @@ package by.it.sc02_morning.golikov.lesson13;
 */
 public class TaskB1 {
 
+    public static void main(String[] args) {
+
+        double[] salary = new double[12];
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < salary.length; i++) {
+            salary[i] = sc.nextDouble();
+        }
+
+            Salary array = new Salary(salary);
+
+        System.out.println(Arrays.toString(array.getSalary()));
+        System.out.println(array.getSum());
+        System.out.println(Arrays.toString(array.getSalary(20)));
+        System.out.println(array.getSum(20));
+        array.setSalary(50);
+        array.sort();
+        System.out.println(Arrays.toString(array.getSalary()));
+        System.out.println(array.getSum());
+    }
 }

@@ -21,22 +21,24 @@ import java.util.Scanner;
  сумму с этой надбавкой.
 */
 public class TaskA1 {
+
     static double sum(double[] salary) {
         double sum = 0;
         for (double s: salary) {
-            sum+=s;
+            sum += s;
         }
         return sum;
-
     }
+
     static double[] add(double[] salary, double percent) {
         double[] result = new double[salary.length];
         for (int i = 0; i < salary.length; i++) {
-            result[i] = salary[i]*(100+percent)/100;
+            result[i] = salary[i] * (100 + percent) / 100;
         }
-        return salary;
+        return result;
     }
-    static void sort(double[] salary) {
+
+    static void sort (double[] salary) {
         Arrays.sort(salary);
     }
 
@@ -46,11 +48,12 @@ public class TaskA1 {
         for (int i = 0; i < salary.length; i++) {
             salary[i] = scanner.nextDouble();
         }
+
         System.out.println(Arrays.toString(salary));
         System.out.println(sum(salary));
         System.out.println(Arrays.toString(add(salary, 20)));
         System.out.println(sum(add(salary, 20)));
-        Arrays.sort(salary);
+        sort(salary);
         System.out.println(Arrays.toString(add(salary, 50)));
         System.out.println(sum(add(salary, 50)));
     }
