@@ -10,7 +10,7 @@ public class Salary {
 
 
     Salary(double[] salary){
-        this.salary = salary;
+       this.salary = salary;
     }
 
     Salary(String[] salaryString){
