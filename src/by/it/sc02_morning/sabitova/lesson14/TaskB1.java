@@ -14,5 +14,8 @@ package by.it.sc02_morning.sabitova.lesson14;
 */
 
 public class TaskB1 {
-
+    public static void main(String[] args){
+        Car[] car={new Car(100), new Maz(60), new Mercedes(150)};
+        for (Car c:car){c.fire();c.start();c.beep();c.stop();}
+    }
 }
