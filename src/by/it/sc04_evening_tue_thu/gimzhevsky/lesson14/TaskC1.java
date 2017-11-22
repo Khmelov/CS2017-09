@@ -1,5 +1,8 @@
 package by.it.sc04_evening_tue_thu.gimzhevsky.lesson14;
+<<<<<<< HEAD
 /**Пустой класс*/
+=======
+>>>>>>> origin/master
 /*
 Пишем документацию на работу.
 
@@ -9,7 +12,11 @@ package by.it.sc04_evening_tue_thu.gimzhevsky.lesson14;
 4) Разместите документацию в папку lesson14/doc и добавьте то, что получилось под контроль git
 
 */
+<<<<<<< HEAD
 public class TaskC1 {
 
+=======
+public class    TaskC1 {
+>>>>>>> origin/master
 
 }
