@@ -9,4 +9,5 @@ package by.it.sc04_evening_tue_thu.gimzhevsky.lesson14;
 
 */
 public class TaskC1 {
+
 }
