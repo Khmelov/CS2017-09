@@ -8,10 +8,11 @@ import java.lang.reflect.Method;
 import java.util.Scanner;
 
 import static org.junit.Assert.*;
-
+/**Тестовый класс - проверяет правильность выполнения TaskA1-C1*/
 @SuppressWarnings("all") //море warnings. всех прячем.
 
 //поставьте курсор на следующую строку и нажмите Ctrl+Shift+F10
+
 public class Testing14 {
 
     @Test(timeout = 1500)

@@ -12,8 +12,9 @@ package by.it.sc04_evening_tue_thu.gimzhevsky.lesson14;
 но каждая машина перед стартом должна включить зажигание.
 
 */
-
+/** Создается три объекта (Car, Maz, Mercedes) и выводится действия (добавлено действие) */
 public class TaskB1 {
+
     public static void main(String[] args) {
         Car[] cars = new Car[]{
                 new Car(100),

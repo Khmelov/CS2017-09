@@ -1,4 +1,5 @@
 package by.it.sc04_evening_tue_thu.gimzhevsky.lesson14;
+
 /*
 1) Создайте класс Car c конструктором и методами:
 Car(int speed)      - конструктор должен сохранить скорость в приватном поле speed, например 60
@@ -27,7 +28,9 @@ String toString()   - метод возвращает строку "Автомо
 import java.util.ArrayList;
 import java.util.List;
 
+/** Создается три объекта (Car, Maz, Mercedes) и выводятся их действия*/
 public class TaskA1 {
+
     public static void main(String[] args) {
         Car[] cars = new Car[]{
                 new Car(100),
