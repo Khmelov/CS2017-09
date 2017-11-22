@@ -25,5 +25,16 @@ String toString()   - метод возвращает строку "Автомо
 */
 
 public class TaskA1 {
-
+    public static void main(String[] args) {
+        Car[] cars = new Car[]{
+                new Car(100),
+                new Maz(60),
+                new Mercedes(150)
+        };
+        for (Car car : cars) {
+            car.start();
+            car.stop();
+            car.beep();
+        }
+    }
 }
