@@ -17,7 +17,7 @@ import java.util.List;
 Алгоритм жадный. Для реализации обдумайте надежный шаг.
 */
 
-/*public class A1VideoRegistrator {
+public class A1VideoRegistrator {
 
     public static void main(String[] args) {
         A1VideoRegistrator instance=new A1VideoRegistrator();
@@ -30,7 +30,7 @@ import java.util.List;
     }
 
     //модификаторы доступа опущены для возможности тестирования
-    List<Double> calcStartTimes(double[] events, double workDuration){
+    List<Double> calcStartTimes(double[] events, double workDuration) {
         //events - события которые нужно зарегистрировать
         //workDuration время работы видеокамеры после старта
         List<Double> result;
@@ -41,22 +41,24 @@ import java.util.List;
                 C*(n * n) + C1*n = O(n*n) */
         //комментарии от проверочного решения сохранены для подсказки, но вы можете их удалить.
         //Ваше решение тут
-/*        int i=0;                              //i - это индекс события events[i]
-        Arrays.sort(events);
-        int n = event.length;                        //подготовка к жадному поглощению массива событий
-
-        while (i<events.length){
-            double start = events [i];
-            result.add (start);                     //пока есть незарегистрированные события
-            double stop = start + workDuration;     //получим одно событие по левому краю
+        int i = 0;                                //i - это индекс события events[i]
+        int n = events.length;
+        Arrays.sort(events);                    //подготовка к жадному поглощению массива событий
+        while (i < n) {                //пока есть незарегистрированные события
+            double start = events[i];           //получим одно событие по левому краю
+            // и запомним время старта видеокамеры
+            double stop = start + workDuration;   //вычислим момент окончания работы видеокамеры
+            result.add(start);
+            while (i < n && events[i] <= stop) {      //и теперь пропустим все покрываемые
+                i++;                                                //за время работы видеокамеры события
+            }                                       //увеличивая индекс.
+            //вернем итог
+        }return result;
+    }
+}
+                                                    //получим одно событие по левому краю
                                                     //и запомним время старта видеокамеры
-            while ((i<=n)&& (events [])) С ЭТОГО МОМЕНТА
-
-
-                                              //вычислим момент окончания работы видеокамеры
-                                              //и теперь пропустим все покрываемые
-                                              //за время работы видеокамеры события
-                                              //увеличивая индекс.
-
-
-        return result;                        //вернем итог*/
+                                                    //вычислим момент окончания работы видеокамеры
+                                                    //и теперь пропустим все покрываемые
+                                                    //за время работы видеокамеры события
+                                                    //увеличивая индекс.

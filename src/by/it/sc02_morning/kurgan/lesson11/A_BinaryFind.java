@@ -50,11 +50,23 @@ public class A_BinaryFind {
             //тут реализуйте бинарный поиск индекса
             //для значения value в саммиве a
             //результат поиска сохраните в result[i]
+            int ai=0;
+            int bi=a.length-1;
+            int ci=0;
+            while (ai<=bi) {
+                ci=(ai+bi)>>>1;
+                if (a[ci]==value) {
+                    result[i]=ci+1;
+                    break;
+                }
+                if (a[ci]<value) ai=ci+1;
+                else bi=ci-1;
+            }
+            if (ai>bi) result[i]=-1;
 
 
 
 
-            result[i]=-1;
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return result;
