@@ -44,12 +44,15 @@ public class B1Sheduler {
         List<Event> result;
         result = new ArrayList<>();
         //ваше решение.
-System.out.println(Arrays.toString(events));
-       Arrays.sort(events);
+        int i=0;                              //i - это индекс события events[i]
+        int n=events.length;
         System.out.println(Arrays.toString(events));
+        Arrays.sort(events);                                     //подготовка к жадному поглощению массива событий
 
-
-
+        result.add(events[0]);
+        for (i = 1; i < events.length; i++) {
+            if(events[i].getStart()>=result.get(result.size()-1).getStop()) result.add(events[i]);
+        }
 
         return result;                        //вернем итог
     }

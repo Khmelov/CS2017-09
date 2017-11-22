@@ -1,27 +1,29 @@
 package by.it.sc02_morning.kurgan.lesson08;
 
 public class Dog {
-
     private String name;
     private int age;
 
-    public String getName(){
-        return name;
-    }
-    public int getAge(){
-        return age;
+
+    String getName() {
+        return this.name;
     }
 
-    public void setName(String name){
+    void setName(String name) {
         this.name = name;
     }
 
-    public void setAge(int age){
+    int getAge() {
+        return this.age;
+    }
+
+    void setAge(int age) {
         this.age = age;
     }
 
-    public String toString(){
-        String result = "Кличка: "+name+". Возраст: "+age;
-        return result;
+    public String toString() {
+        return String.format("Кличка: %s. Возраст: %d", name, age);
     }
+
+
 }
