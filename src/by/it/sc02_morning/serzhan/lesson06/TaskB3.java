@@ -18,23 +18,31 @@ package by.it.sc02_morning.serzhan.lesson06;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class TaskB3 {
-    public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int maximum = 0;
-        int n = Integer.parseInt(reader.readLine());
-        if (n > 0) {
-            maximum = Integer.parseInt(reader.readLine());
-            for (int x = 0; x < n - 2; x++) {
-                int s = Integer.parseInt(reader.readLine());
-                if (s > maximum) maximum = s;
+    public static void main(String[] args) {
+        int min = 0, max = 0;
+        double avg = 0;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i = 0;i < n;i++) {
+            int m = sc.nextInt();
+            if (i==0) {
+                min = m;
+                max = m;
+                avg = m;
             }
-            if (maximum == 0) {
-                maximum = 1;
+            else {
+                if (m < min) min = m;
+                if (m > max) max = m;
+                avg = avg + m;
             }
-            System.out.println(maximum);
         }
+        System.out.println("Minimum = " + min);
+        System.out.println("Maximum = " + max);
+        System.out.println("Average = " + avg/n);
     }
 }
+
 

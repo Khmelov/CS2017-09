@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class FiboB1 {
 
+
     private long startTime = System.currentTimeMillis();
 
     private long time() {
@@ -25,6 +26,7 @@ public class FiboB1 {
     }
 
     BigInteger fastB(int n) {
+        //здесь нужно реализовать вариант с временем O(n) и памятью O(n)
         ArrayList<BigInteger> f = new ArrayList<>();
         f.add(BigInteger.ZERO);
         f.add(BigInteger.ONE);
@@ -33,16 +35,21 @@ public class FiboB1 {
             BigInteger s2 = f.get(i - 2);
             BigInteger result = s1.add(s2);
             f.add(result);
-            //здесь нужно реализовать вариант с временем O(n) и памятью O(n)
-            //BigInteger[]f=new BigInteger[n+1];
-            //f[0]=BigInteger.ZERO;
-            //f[1]=BigInteger.ONE;
-            //for(int i=2;i<=n;i++){
-            //  f[i]=f[i-1].add(f[i-2]);
-
         }
-        return f.get(n);// эта же строка и для массива
-
+        return f.get(n);
     }
-}
 
+
+/*    BigInteger fastB(int n) {
+        //здесь нужно реализовать вариант с временем O(n) и памятью O(n)
+        BigInteger[] f = new BigInteger[n + 1];
+        f[0] = BigInteger.ZERO;
+        f[1] = BigInteger.ONE;
+        for (int i = 2; i <= n; i++) {
+            f[i] = f[i - 1].add(f[i - 2]);
+        }
+        return f[n];
+    }
+*/
+
+}

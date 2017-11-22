@@ -32,7 +32,7 @@ public class TaskA3 {
         char i;
         char q = 'A';
 
-        //for (c = 1; c <= size; c++) {
+        for (c = 1; c <= size; c++) {
             for (i = 'A'; i <= q; i++) {
                 System.out.print(i);
             }
@@ -40,7 +40,7 @@ public class TaskA3 {
             q++;
         }
     }
-//}
+}
 
 
 
