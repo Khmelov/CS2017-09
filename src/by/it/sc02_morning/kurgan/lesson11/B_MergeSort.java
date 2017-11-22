@@ -21,7 +21,35 @@ Sample Output:
 2 2 3 9 9
 */
 public class B_MergeSort {
+    private int[] merge(int[] a, int[] b) {
+        int[] result = new int[a.length + b.length];
+        int ai = 0;
+        int bi = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (ai == a.length)
+                result[i] = b[bi++];
+            else if (bi == b.length)
+                result[i] = a[ai++];
+            else if (a[ai] < b[bi])
+                result[i] = a[ai++];
+            else
+                result[i] = b[bi++];
+        }
+        return result;
+    }
 
+    private int[] mergeSort (int[] mass, int left, int right) {
+        if (left == right) {
+            int[] one = new int[1];
+            one[0] = mass[left];
+            return one;
+        }
+        int mid = (left + right) / 2;
+        int[] a = mergeSort(mass, left, mid);
+        int[] b = mergeSort(mass, mid + 1, right);
+        int[] result = merge(a, b);
+        return result;
+    }
 
     int[] getMergeSort(InputStream stream) throws FileNotFoundException {
         //подготовка к чтению данных
@@ -39,11 +67,12 @@ public class B_MergeSort {
         //!!!!!!!!!!!!!!!!!!!!!!!!     тут ваше решение   !!!!!!!!!!!!!!!!!!!!!!!!
 
 
-
+        a=mergeSort(a,0,a.length-1);
 
 
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
+
         return a;
     }
 

@@ -23,12 +23,12 @@ public class B1Sheduler {
     public static void main(String[] args) {
         B1Sheduler instance = new B1Sheduler();
         Event[] events = {  new Event(0, 3),  new Event(0, 1), new Event(1, 2), new Event(3, 5),
-                            new Event(1, 3),  new Event(1, 3), new Event(1, 3), new Event(3, 6),
-                            new Event(2, 7),  new Event(2, 3), new Event(2, 7), new Event(7, 9),
-                            new Event(3, 5),  new Event(2, 4), new Event(2, 3), new Event(3, 7),
-                            new Event(4, 5),  new Event(6, 7), new Event(6, 9), new Event(7, 9),
-                            new Event(8, 9),  new Event(4, 6), new Event(8, 10), new Event(7, 10)
-                          };
+                new Event(1, 3),  new Event(1, 3), new Event(1, 3), new Event(3, 6),
+                new Event(2, 7),  new Event(2, 3), new Event(2, 7), new Event(7, 9),
+                new Event(3, 5),  new Event(2, 4), new Event(2, 3), new Event(3, 7),
+                new Event(4, 5),  new Event(6, 7), new Event(6, 9), new Event(7, 9),
+                new Event(8, 9),  new Event(4, 6), new Event(8, 10), new Event(7, 10)
+        };
 
         //рассчитаем оптимальное заполнение аудитории
         List<Event> starts = instance.calcStartTimes(events,0,10);
@@ -44,12 +44,20 @@ public class B1Sheduler {
         List<Event> result;
         result = new ArrayList<>();
         //ваше решение.
-        System.out.println("events"+ Arrays.toString(events));
+        Arrays.sort(events);
+        System.out.println(Arrays.toString(events));
 
-
-
-
-
-        return (this.start = other.Event.start);                        //вернем итог
+        System.out.println(Arrays.toString(events));
+        int i=0;
+        double lasttime=0;
+        while (i<events.length) {
+            if (events[i].getStart()>=lasttime) {
+                result.add(events[i]);
+                lasttime = events[i].getStop();
+            }
+            while (i<events.length && events[i].getStart()<lasttime)
+                i++;
+        }
+        return result;                        //вернем итог
     }
 }

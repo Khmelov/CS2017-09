@@ -45,7 +45,7 @@ import java.util.Scanner;
 3) заготовку программы придется довольно изрядно доработать
 */
 
-/*public class A_QSort {
+public class A_QSort {
 
     //отрезок
     private class Segment  implements Comparable<Segment>{
@@ -59,6 +59,15 @@ import java.util.Scanner;
             //концы отрезков придут в обратном порядке
         }
 
+        public int getStart() {
+            return start;
+        }
+
+        public int getStop() {
+            return stop;
+        }
+
+
         @Override
         public int compareTo(Segment otherSegment) {
             //подумайте, что должен возвращать компаратор отрезков
@@ -71,38 +80,6 @@ import java.util.Scanner;
             return "("+start +":" + stop +')';
         }
     }
-    private int partition(int[] a, int left, int right) {
-        int x=a[left];
-        int j = left;
-        for (int i = left+1; i<= right; i++){
-            if (a [i] <=x){
-                j++;
-                int tmp = a [j];
-                a[j] = a[i];
-                a[i] = tmp;
-       }
-       }
-       }
-    }
-
-    void qSort (int a[], int left, int right){
-        if (left<right){
-        int m=partition (a,left,right);
-        qSort (a, left,m);
-        qSort(a, m+1, right);
-
-    }
-
-
-
-    void qSort (int a[]){
-
-        }
-
-
-
-
-
 
 
     int[] getAccessory(InputStream stream) throws FileNotFoundException {
@@ -130,23 +107,32 @@ import java.util.Scanner;
         System.out.println("points="+ Arrays.toString(points));
         //тут реализуйте логику задачи
         //ОБЯЗАТЕЛЬНО с применением быстрой сортировки
-Arrays.sort(points)
-        System.out.println( "points sort =" Arrays.toString(points));
+
 
 
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
+        return naive_count(points,segments);
+    }
+
+    int[] naive_count(int[] points, Segment[] segments) {
+        int[] result = new int[points.length];
+        for (int i=0;i<points.length;++i) {
+            for (int j=0;j<segments.length;++j) {
+                if (points[i] >= segments[j].getStart() && points[i] <= segments[j].getStop()) {
+                    result[i]+=1;
+                }
+            }
+        }
         return result;
     }
 
-
     public static void main(String[] args) throws FileNotFoundException {
         String root = System.getProperty("user.dir") + "/src/";
-        InputStream stream = new FileInputStream(root + "by/it/akhmelev/lesson12/dataA.txt");
+        InputStream stream = new FileInputStream(root + "by/it/sc04_evening_tue_thu/koktysh/lesson12/dataA.txt");
         A_QSort instance = new A_QSort();
         int[] result=instance.getAccessory(stream);
         System.out.println("result="+ Arrays.toString(result));
     }
 
 }
-*/
